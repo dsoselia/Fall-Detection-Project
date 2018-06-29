@@ -5,3 +5,8 @@ This week's to do list
 - [ ] Export marked data to csv files
 - [ ] Merge generated csv files into compatible format 
 - [ ] Create metadata, and normalize individual columns
+
+
+- [ ] Process for video analysis (equivelent)
+- [ ] choose export formats
+- [ ] document process
