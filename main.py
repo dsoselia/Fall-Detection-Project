@@ -5,10 +5,14 @@ Created on Sun Jul  1 00:41:01 2018
 
 @author: davitisoselia
 """
-
+falls=[]
 with open('merged.csv') as csv:
     content = csv.readlines()
 for i in range(len(content)):
+    if('tart' in content[i]):
+        falls.append([i])
+    if('nd' in content[i]):
+        falls[-1].append(i)
     content[i] = content[i].split(',')
 
 
@@ -27,7 +31,7 @@ def generateNumpy(point, length = 50):
     for i in range(point, point + length):
         if ('all' in content[i][-1]):
             falls+=1
-        segment.append(content[i][3:-2])
+        segment.append(content[i][:-2])
     if (falls == 1):
         return
     elif(falls>1):
@@ -46,9 +50,7 @@ ml,mk = generateNumpy(5)
 
 
 
-
-
-sensorNum = ml.shape[0]
+sensorNum = ml.shape[1]
 
 
 
@@ -78,7 +80,6 @@ model.add(Dense(2, activation='softmax'))
 model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
-
 
 
 
