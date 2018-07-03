@@ -8,7 +8,6 @@ By 30.06
 
 By 07.07
 - [ ] split into test and training sets sensor inputs
-- [ ] split into test and training sets sensor inputs
 - [X] trnsform data to numpy
 - [X] write RNN classifier
 - [X] add derivative generator
