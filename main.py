@@ -5,7 +5,9 @@ Created on Sun Jul  1 00:41:01 2018
 
 @author: davitisoselia
 """
-falls=[]
+
+
+falls=[] #saves fall start-end moments
 with open('merged.csv') as csv:
     content = csv.readlines()
 for i in range(len(content)):
@@ -24,6 +26,7 @@ for i in range(len(content)):
         print(i)
    ''' 
 import numpy as np
+
 def generateNumpy(point, length = 50):
     segment = []
     falls = 0;
