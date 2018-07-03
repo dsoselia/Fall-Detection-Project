@@ -9,8 +9,10 @@ By 30.06
 By 07.07
 - [ ] split into test and training sets sensor inputs
 - [ ] split into test and training sets sensor inputs
-- [ ] trnsform data to numpy
-- [ ] write first classifier
+- [X] trnsform data to numpy
+- [X] write RNN classifier
+- [X] add derivative generator
+
 
 - [ ] Process for video analysis (equivelent)
 - [ ] choose export formats
