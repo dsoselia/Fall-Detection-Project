@@ -15,9 +15,9 @@ def strip(path):
     for row in content:
         if (i==4):
             if ('Marker' not in row):
-                end = True
+                end = False
             if ('Switch' in row):
-                start = True
+                start = False
         if (i > 5):
             new_row = row
             if (end):
@@ -28,22 +28,21 @@ def strip(path):
                 new_row = ','.join(new_row)
             stripped += new_row
         i+=1
+        if (i%1000 == 1):
+            print(i)
     return stripped
 
 
 
 
 #takes path with CSV files parent folder, merges into single CSV file. As default searches in current directory and outputs to merged.csv
-def merge(path = os.getcwd() + '/CSV_fall_data/**/*.csv', mergedPath = 'merged1.csv'):
+def merge(path = os.getcwd() + '/CSV_fall_data/**/*.csv', mergedPath = 'merged.csv'):
     csvs = glob(top)
     merged = ""
     for csv in csvs:
-        try:
-            merged += strip(csv) + '\n'
-        except:
-            print('unsupported file')
+        merged += strip(csv) + '\n'
     open(mergedPath, 'w').write(merged)
-
+merge()
 def printRow(path = os.getcwd() + '/CSV_fall_data/**/*.csv', n = 4):
     csvs = glob(top)
     merged = []

@@ -88,15 +88,13 @@ import random
 j = 0
 iter = 0
 modeln='abcdeg_l.h5'
-while(iter<5):
+while(iter<50000):
     #avred = not avred
     np_arr, y = generateNumpy(j)
-    print(j)
-    print(np_arr.shape)
     x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
     x_train = x_train / 50
     y_train = np.array(y)
-    model.fit(x_train, y_train, batch_size=1, nb_epoch=1, shuffle=False, verbose=1)
+    model.fit(x_train, y_train, batch_size=1, nb_epoch=1, shuffle=False, verbose=0)
     #print(j)
     j=random.randint(1, len(content)-50)
     j=random.randint(1, 5)
