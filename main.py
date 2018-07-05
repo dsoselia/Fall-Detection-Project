@@ -5,8 +5,8 @@ Created on Sun Jul  1 00:41:01 2018
 
 @author: davitisoselia
 """
-
-
+import merger
+merger.merge9()
 falls=[] #saves fall start-end moments
 with open('merged.csv') as csv:
     content = csv.readlines()
@@ -26,6 +26,7 @@ for i in range(len(content)):
         print(i)
    ''' 
 import numpy as np
+import sys
 
 
 
@@ -48,7 +49,7 @@ def generate_numpy(point, length = 500):
     segment = np.array(segment)
     return segment, fell
 
-ml,mk = generateNumpy(5)
+ml,mk = generate_numpy(5)
 
 
 
@@ -82,7 +83,7 @@ model.add(LSTM(25, return_sequences=True, stateful=True, input_shape=(None, sens
 model.add(LSTM(20, recurrent_dropout=0.2))
 #model.add(Dense(30, activation='relu'))
 #model.add(Dense(10, activation='relu'))
-model.add(Dense(2, activation='softmax'))
+model.add(Dense(2, activation='sigmoid'))
 model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
@@ -99,12 +100,42 @@ def get_fall(point = 0, length = random.randint(300, 1500)):
     segment , fell = generate_numpy(point, length)
     return segment , fell
 
+def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
+    np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
+    x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
+    x_train = x_train / 50
+    y_train = np.array(y)
+    prediction =- model.predict(x_train)
+    print(y_train)
+    print(prediction)
+    return (np.argmax(y_train)==np.argmax(prediction))
+
+
+def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
+    np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
+    x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
+    x_train = x_train / 50
+    y_train = np.array(y)
+    print(y_train)
+    return (np.argmax(y_train)==np.argmax(model.predict(x_train)))
+
+fall = True    
+correct = 0
+while i < 1000:
+    try:
+        fall = not fall
+        correct += (checkresult(check_fall = fall))
+        i+=1
+    except:
+        print(sys.exc_info()[0])
+
 
 j = 0
 iter = 0
-modeln='abcdeg_l.h5'
+modeln='fall_detection_1.h5'
 balance_needed = False
-import sys
+
+
 
 while(iter<50000):
     j=random.randint(1, len(content)-50)
@@ -122,7 +153,7 @@ while(iter<50000):
         #print(j)
         #j=random.randint(1, 5)
         #j=random.randint(1264, 1896)
-        if(iter % 1000 == 0):
+        if(iter % 10 == 0):
             model.save(modeln)
             print(iter)
         iter+=1;
