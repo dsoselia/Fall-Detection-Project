@@ -48,7 +48,7 @@ def merge(path = os.getcwd() + '/CSV_fall_data/**/*.csv', mergedPath = 'merged.c
     for csv in csvs:
         merged += strip(csv) + '\n'
     open(mergedPath, 'w').write(merged)
-merge()
+#merge()
 
 def printRow(path = os.getcwd() + '/CSV_fall_data/**/*.csv', n = 4):
     csvs = glob(top)
