@@ -110,7 +110,7 @@ while(iter<50000):
     j=random.randint(1, len(content)-50)
     #avred = not avred
     try:
-        print(iter)
+        #print(iter)
         if balance_needed:
             np_arr, y = get_fall()
         else:
@@ -127,7 +127,7 @@ while(iter<50000):
             print(iter)
         iter+=1;
         balance_needed = not balance_needed
-    except TypeError:
+    except (TypeError,IndexError):
         print('error raised at index ' +str(j))
     except:
         print(sys.exc_info()[0])
