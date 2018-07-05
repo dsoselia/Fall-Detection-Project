@@ -15,9 +15,9 @@ def strip(path):
     for row in content:
         if (i==4):
             if ('Marker' not in row):
-                end = False
+                end = True
             if ('Switch' in row):
-                start = False
+                start = True
         if (i > 5):
             new_row = row
             if (end):

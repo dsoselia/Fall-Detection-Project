@@ -27,18 +27,21 @@ for i in range(len(content)):
    ''' 
 import numpy as np
 
-def generateNumpy(point, length = 50):
+
+
+def generate_numpy(point, length = 500):
     segment = []
     falls = 0;
     fell = [[0,1]]
     for i in range(point, point + length):
         if ('all' in content[i][-1]):
             falls+=1
-        segment.append(content[i][:-2])
+        if i%10==0:
+            segment.append(content[i][:-2])
     if (falls == 1):
         return
     elif(falls>1):
-        fell = [[0,1]]
+        fell = [[1,0]]
     for i in range(len(segment)):
         for j in range(len(segment[i])):
             segment[i][j] = float(segment[i][j])
@@ -88,22 +91,37 @@ model.compile(loss='binary_crossentropy',
 
 
 import random
+
+
+def get_fall(point = 0):
+    if point == 0:
+        point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
+    segment , fell = generate_numpy(point, random.randint(300, 1500))
+    return segment , fell
+
+
 j = 0
 iter = 0
 modeln='abcdeg_l.h5'
+balance_needed = False
+
 while(iter<50000):
     #avred = not avred
-    np_arr, y = generateNumpy(j)
+    if balance_needed:
+        np_arr, y = get_fall()
+    else:
+        np_arr, y = generate_numpy(j)
     x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
     x_train = x_train / 50
     y_train = np.array(y)
     model.fit(x_train, y_train, batch_size=1, nb_epoch=1, shuffle=False, verbose=0)
     #print(j)
     j=random.randint(1, len(content)-50)
-    j=random.randint(1, 5)
+    #j=random.randint(1, 5)
     #j=random.randint(1264, 1896)
     if(iter % 1000 == 0):
         model.save(modeln)
         print(iter)
     iter+=1;
+    balance_needed = not balance_needed
     
