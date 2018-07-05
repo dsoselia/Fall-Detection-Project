@@ -93,10 +93,10 @@ model.compile(loss='binary_crossentropy',
 import random
 
 
-def get_fall(point = 0):
+def get_fall(point = 0, length = random.randint(300, 1500)):
     if point == 0:
         point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
-    segment , fell = generate_numpy(point, random.randint(300, 1500))
+    segment , fell = generate_numpy(point, length)
     return segment , fell
 
 
