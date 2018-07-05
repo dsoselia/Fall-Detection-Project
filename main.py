@@ -6,7 +6,7 @@ Created on Sun Jul  1 00:41:01 2018
 @author: davitisoselia
 """
 import merger
-merger.merge9()
+merger.merge()
 falls=[] #saves fall start-end moments
 with open('merged.csv') as csv:
     content = csv.readlines()
