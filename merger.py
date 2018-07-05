@@ -12,6 +12,7 @@ def strip(path):
         content = csv.readlines()
     stripped = ""
     i = 0
+    last = ""
     for row in content:
         if (i==4):
             if ('Marker' not in row):
@@ -22,14 +23,19 @@ def strip(path):
             new_row = row
             if (end):
                 new_row = new_row[:-1]+',0,\n'
+            new_row = new_row.split(',')
             if(start):
-                new_row = new_row.split(',')
                 new_row = new_row[3:]
-                new_row = ','.join(new_row)
+            else:
+                 new_row = new_row[1:]
+            new_row = ','.join(new_row)
+            last = new_row
             stripped += new_row
         i+=1
         if (i%1000 == 1):
-            print(i)
+            #print(i)
+            pass
+    print(path + str(len(last.split(','))))
     return stripped
 
 
@@ -43,6 +49,7 @@ def merge(path = os.getcwd() + '/CSV_fall_data/**/*.csv', mergedPath = 'merged.c
         merged += strip(csv) + '\n'
     open(mergedPath, 'w').write(merged)
 merge()
+
 def printRow(path = os.getcwd() + '/CSV_fall_data/**/*.csv', n = 4):
     csvs = glob(top)
     merged = []
@@ -51,4 +58,4 @@ def printRow(path = os.getcwd() + '/CSV_fall_data/**/*.csv', n = 4):
             content = csv.readlines()
         merged.append(content[n])
     return merged
-a = printRow(n=50)
+a = printRow(n=500)
