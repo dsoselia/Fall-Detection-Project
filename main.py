@@ -6,8 +6,17 @@ Created on Sun Jul  1 00:41:01 2018
 @author: davitisoselia
 """
 import merger
-merger.merge()
+
+
+modeln='fall_detection_1.h5' # model name
+merged_path = 'merged.csv'
+import os.path
+
+if not os.path.isfile(merged_path):
+    merger.merge()
+
 falls=[] #saves fall start-end moments
+
 with open('merged.csv') as csv:
     content = csv.readlines()
 for i in range(len(content)):
@@ -76,17 +85,17 @@ from keras.layers import Dense
 from keras.layers import Conv1D
 import numpy as np
 
-
-model = Sequential()
-model.add(LSTM(25, return_sequences=True, stateful=True, input_shape=(None, sensorNum),
-         batch_input_shape=(1, None, sensorNum)))
-model.add(LSTM(20, recurrent_dropout=0.2))
-#model.add(Dense(30, activation='relu'))
-#model.add(Dense(10, activation='relu'))
-model.add(Dense(2, activation='sigmoid'))
-model.compile(loss='binary_crossentropy',
-              optimizer='rmsprop',
-              metrics=['accuracy'])
+if not os.path.isfile(modeln):
+    model = Sequential()
+    model.add(LSTM(25, return_sequences=True, stateful=True, input_shape=(None, sensorNum),
+             batch_input_shape=(1, None, sensorNum)))
+    model.add(LSTM(20, recurrent_dropout=0.2))
+    #model.add(Dense(30, activation='relu'))
+    #model.add(Dense(10, activation='relu'))
+    model.add(Dense(2, activation='sigmoid'))
+    model.compile(loss='binary_crossentropy',
+                  optimizer='rmsprop',
+                  metrics=['accuracy'])
 
 
 
@@ -150,8 +159,8 @@ while(iter<50000):
             np_arr, y = get_fall()
         else:
             np_arr, y = generate_numpy(j)
+        lastnp = np_arr
         np_arr = np_arr / temp_storage
-        x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
         #x_train = x_train / 50
         y_train = np.array(y)
         model.fit(x_train, y_train, batch_size=1, nb_epoch=1, shuffle=False, verbose=0)
