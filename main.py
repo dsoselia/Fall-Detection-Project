@@ -84,6 +84,8 @@ from keras.layers import LSTM
 from keras.layers import Dense
 from keras.layers import Conv1D
 import numpy as np
+from keras.models import load_model
+
 
 if not os.path.isfile(modeln):
     model = Sequential()
@@ -96,8 +98,8 @@ if not os.path.isfile(modeln):
     model.compile(loss='binary_crossentropy',
                   optimizer='rmsprop',
                   metrics=['accuracy'])
-
-
+else:
+    model = load_model(modeln)
 
 
 import random
@@ -153,8 +155,6 @@ def checkresult(point = random.randint(1, len(content)-50), length = random.rand
 
 
 from keras.models import load_model
-
-model = load_model(modeln)
 j = 0
 iter = 0
 balance_needed = False
