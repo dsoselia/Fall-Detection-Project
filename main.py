@@ -120,8 +120,6 @@ def checkresult_confusion(point = random.randint(1, len(content)-50), length = r
     #x_train = temp_storage / 50
     y_train = np.array(y)
     prediction = model.predict(x_train)
-    print(y_train)
-    print(prediction)
     if (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 0):
         confusion_matrix[0][0] += 1
     elif (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 1):
