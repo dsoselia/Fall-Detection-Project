@@ -99,7 +99,23 @@ if not os.path.isfile(modeln):
 
 
 
-n)
+
+import random
+
+
+def get_fall(point = 0, length = random.randint(300, 1500)):
+    if point == 0:
+        point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
+    segment , fell = generate_numpy(point, length)
+    return segment , fell
+
+def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
+    np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
+    x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
+    x_train = temp_storage / 50
+    y_train = np.array(y)
+    prediction =- model.predict(x_train)
+    print(y_train)
     print(prediction)
     return (np.argmax(y_train)==np.argmax(prediction))
 
@@ -109,14 +125,8 @@ def checkresult(point = random.randint(1, len(content)-50), length = random.rand
     x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
     x_train = x_train / temp_storage
     y_train = np.array(y)
-import random
-
-
-def get_fall(point = 0, length = random.randint(300, 1500)):
-    if point == 0:
-        point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
-    segment , fell = generate_numpy(point, length)
-    return segment , fell
+    print(y_train)
+    return (np.argmax(y_train)==np.argmax(model.predict(x_train)))
 
 fall = True    
 correct = 0
@@ -154,7 +164,6 @@ while(iter<50000):
             np_arr, y = generate_numpy(j)
         lastnp = np_arr
         np_arr = np_arr / temp_storage
-        x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
         #x_train = x_train / 50
         y_train = np.array(y)
         model.fit(x_train, y_train, batch_size=1, nb_epoch=1, shuffle=False, verbose=0)

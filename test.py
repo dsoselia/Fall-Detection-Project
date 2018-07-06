@@ -93,7 +93,7 @@ def get_fall(point = 0, length = random.randint(300, 1500)):
         point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
     segment , fell = generate_numpy(point, length)
     return segment , fell
-confusion_matrix = [[0,0],[0,0]]
+
 def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
     np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
     np_arr = np_arr / temp_storage
@@ -103,14 +103,6 @@ def checkresult(point = random.randint(1, len(content)-50), length = random.rand
     prediction = model.predict(x_train)
     print(y_train)
     print(prediction)
-    if (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 0):
-        confusion_matrix[0][0] += 1
-    elif (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 1):
-        confusion_matrix[1][1] += 1
-    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 1):
-        confusion_matrix[1][0] += 1
-    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 0):
-        confusion_matrix[0][1] += 1
     return (np.argmax(y_train)==np.argmax(prediction))
 
 '''
@@ -125,7 +117,6 @@ def checkresult(point = random.randint(1, len(content)-50), length = random.rand
 fall = True    
 correct = 0
 i = 0
-'''
 while i < 1000:
     try:
         fall = not fall
@@ -135,17 +126,4 @@ while i < 1000:
         print(sys.exc_info()[0])
 
 print(correct)
-'''
-i = 0
-correct = 0
-confusion_matrix = [[0,0],[0,0]]
 
-while i < 10000:
-    try:
-        fall = not fall
-        correct += (checkresult(check_fall = fall))
-        i+=1
-    except:
-        print(sys.exc_info()[0])
-
-print(correct)
