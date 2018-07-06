@@ -207,8 +207,9 @@ while(iter<50000):
         balance_needed = not balance_needed
         #print('here')
     except (TypeError,IndexError):
-        print('error raised at index ' +str(j))
-        print(sys.exc_info()[0])
+        #print('error raised at index ' +str(j))
+        #print(sys.exc_info()[0])
+        pass
     except:
         print(sys.exc_info()[0])
         raise
