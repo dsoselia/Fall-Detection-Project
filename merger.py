@@ -33,7 +33,7 @@ def strip(path):
             stripped += new_row
         i+=1
         if (i%1000 == 1):
-            #print(i)
+            print(i)
             pass
     print(path + str(len(last.split(','))))
     return stripped
