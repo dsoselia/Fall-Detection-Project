@@ -18,7 +18,7 @@ temp_storage = np.array(normalizer)
 modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
 import os.path
-model = load_model('a.h5')
+model = load_model('a1.h5')
 
 if not os.path.isfile(merged_path):
     merger.merge()
@@ -94,7 +94,7 @@ def get_fall(point = 0, length = random.randint(300, 1500)):
         point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
     segment , fell = generate_numpy(point, length)
     return segment , fell
-
+'''
 def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
     np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
     np_arr = np_arr / temp_storage
@@ -105,7 +105,7 @@ def checkresult(point = random.randint(1, len(content)-50), length = random.rand
     #print(y_train)
     #print(prediction)
     return (np.argmax(y_train)==np.argmax(prediction))
-
+'''
 confusion_matrix = [[0,0],[0,0]]
 def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
     np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
@@ -142,7 +142,7 @@ def test():
     while i < 1000:
         try:
             
-            correct += (checkresult(check_fall = fall))
+            correct += (checkresult_confusion(check_fall = fall))
             i+=1
             fall = not fall
         except:

@@ -112,37 +112,26 @@ def get_fall(point = 0, length = random.randint(300, 1500)):
         point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
     segment , fell = generate_numpy(point, length)
     return segment , fell
-'''
-def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
+
+def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False,  confusion_matrix = [[0,0],[0,0]]):
     np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
+    np_arr = np_arr / temp_storage
     x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
-    x_train = temp_storage / 50
+    #x_train = temp_storage / 50
     y_train = np.array(y)
-    prediction =- model.predict(x_train)
+    prediction = model.predict(x_train)
     print(y_train)
     print(prediction)
-    return (np.argmax(y_train)==np.argmax(prediction))
+    if (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 0):
+        confusion_matrix[0][0] += 1
+    elif (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 1):
+        confusion_matrix[1][1] += 1
+    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 1):
+        confusion_matrix[1][0] += 1
+    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 0):
+        confusion_matrix[0][1] += 1
+    return (np.argmax(y_train)==np.argmax(prediction)), confusion_matrix
 
-
-def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
-    np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
-    x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
-    x_train = x_train / temp_storage
-    y_train = np.array(y)
-    print(y_train)
-    return (np.argmax(y_train)==np.argmax(model.predict(x_train)))
-'''
-'''
-fall = True    
-correct = 0
-i = 0
-while i < 1000:
-    try:
-        fall = not fall
-        correct += (checkresult(check_fall = fall))
-        i+=1
-    except:
-        print(sys.exc_info()[0])
 '''
 def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
     np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
@@ -154,7 +143,7 @@ def checkresult(point = random.randint(1, len(content)-50), length = random.rand
     #print(y_train)
     #print(prediction)
     return (np.argmax(y_train)==np.argmax(prediction))
-
+'''
 
 from keras.models import load_model
 j = 0
@@ -168,20 +157,22 @@ for value in temp_storage:
 temp_storage = np.array(normalizer)
 
 def test():
+    matrix = [[0,0],[0,0]]
     fall = True    
     correct = 0
     i = 0
     while i < 1000:
         try:
-            
-            correct += (checkresult(check_fall = fall))
+            temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix = matrix)
+            correct += (temp)            
             i+=1
             fall = not fall
         except:
-            #print(sys.exc_info()[0])
             pass
     
+    print('accuracy: ')
     print(correct)
+    print(matrix)
     
 while(iter<50000):
     j=random.randint(1, len(content)-50)
