@@ -32,7 +32,7 @@ def strip(path):
             else:
                 new_row = new_row[1:]
             if falling:
-                new_row[-2] = 1
+                new_row[-2] = '1'
             new_row = ','.join(new_row)
             last = new_row
             stripped += new_row
