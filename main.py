@@ -62,7 +62,16 @@ ml,mk = generate_numpy(5)
 
 
 
-
+def row_to_numpy(point):
+    segment = []
+    fell = [[0]]
+    if (int(content[i][-2])) > 0:
+        fell = [[1]]
+    segment = (content[i][:-2])
+    for j in range(len(segment)):
+        segment[j] = float(segment[j])
+    segment = np.array(segment)
+    return segment, fell
 
 
 
@@ -107,12 +116,14 @@ else:
 import random
 
 
-def get_fall(point = 0, length = random.randint(300, 1500)):
-    if point == 0:
-        point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
-    segment , fell = generate_numpy(point, length)
+def get_fall(point = 0):
+    fell = [[0]]
+    while fell == [[0]]:
+        if point == 0:
+            point = falls[random.randint(0, len(falls))][0] + random.randint(0, 300)
+        segment , fell = generate_numpy(point)
     return segment , fell
-
+'''
 def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False,  confusion_matrix = [[0,0],[0,0]]):
     np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
     np_arr = np_arr / temp_storage
@@ -130,7 +141,7 @@ def checkresult_confusion(point = random.randint(1, len(content)-50), length = r
         confusion_matrix[0][1] += 1
     return (np.argmax(y_train)==np.argmax(prediction)), confusion_matrix
 
-'''
+
 def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
     np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
     np_arr = np_arr / temp_storage
