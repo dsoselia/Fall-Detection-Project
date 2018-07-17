@@ -39,43 +39,23 @@ import sys
 
 
 
-def generate_numpy(point, length = 500):
-    segment = []
-    falls = 0;
-    fell = [[0,1]]
-    for i in range(point, point + length):
-        if ('all' in content[i][-1]):
-            falls+=1
-        if i%10==0:
-            segment.append(content[i][:-2])
-    if (falls == 1):
-        return
-    elif(falls>1):
-        fell = [[1,0]]
-    for i in range(len(segment)):
-        for j in range(len(segment[i])):
-            segment[i][j] = float(segment[i][j])
-    segment = np.array(segment)
-    return segment, fell
-
-ml,mk = generate_numpy(5)
-
 
 
 def row_to_numpy(point):
     segment = []
-    fell = [[0]]
-    if (int(content[i][-2])) > 0:
-        fell = [[1]]
-    segment = (content[i][:-2])
+    fell = [0]
+    if (int(content[point][-2])) > 0:
+        fell = [1]
+    segment = (content[point][:-2])
     for j in range(len(segment)):
         segment[j] = float(segment[j])
     segment = np.array(segment)
     return segment, fell
 
+ml,mk = row_to_numpy(5)
 
 
-sensorNum = ml.shape[1]
+sensorNum = ml.shape[0]
 
 
 
@@ -100,28 +80,22 @@ from keras.models import load_model
 
 if not os.path.isfile(modeln):
     model = Sequential()
-    model.add(LSTM(25, return_sequences=True, stateful=True, input_shape=(None, sensorNum),
-             batch_input_shape=(1, None, sensorNum)))
-    model.add(LSTM(20, recurrent_dropout=0.2))
-    #model.add(Dense(30, activation='relu'))
-    #model.add(Dense(10, activation='relu'))
+    model.add(Dense(sensorNum, activation='relu'))
+    model.add(Dense(sensorNum/2, activation='relu'))
     model.add(Dense(2, activation='sigmoid'))
-    model.compile(loss='binary_crossentropy',
-                  optimizer='rmsprop',
-                  metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 else:
     model = load_model(modeln)
 
 
 import random
 
-
 def get_fall(point = 0):
-    fell = [[0]]
-    while fell == [[0]]:
+    fell = [0]
+    while fell == [0]:
         if point == 0:
-            point = falls[random.randint(0, len(falls))][0] + random.randint(0, 300)
-        segment , fell = generate_numpy(point)
+            point = falls[random.randint(0, len(falls))][0] + random.randint(3, 4)
+        segment , fell = row_to_numpy(point)
     return segment , fell
 
 
@@ -154,6 +128,7 @@ def test():
     print(correct)
     print(matrix)
     
+# train NN
 while(iter<50000):
     j=random.randint(1, len(content)-50)
     #avred = not avred
@@ -186,3 +161,17 @@ while(iter<50000):
     except:
         print(sys.exc_info()[0])
         raise
+        
+        
+#train boosted decision tree
+        
+from sklearn.ensemble import RandomForestClassifier
+#from sklearn.datasets import make_classification
+
+rf = RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=3, max_features='auto', max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1,
+            oob_score=False, random_state=0, verbose=0, warm_start=False)
+rf.fit(get_fall[0], get_fall[1])
