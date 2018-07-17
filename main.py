@@ -123,36 +123,7 @@ def get_fall(point = 0):
             point = falls[random.randint(0, len(falls))][0] + random.randint(0, 300)
         segment , fell = generate_numpy(point)
     return segment , fell
-'''
-def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False,  confusion_matrix = [[0,0],[0,0]]):
-    np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
-    np_arr = np_arr / temp_storage
-    x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
-    #x_train = temp_storage / 50
-    y_train = np.array(y)
-    prediction = model.predict(x_train)
-    if (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 0):
-        confusion_matrix[0][0] += 1
-    elif (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 1):
-        confusion_matrix[1][1] += 1
-    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 1):
-        confusion_matrix[1][0] += 1
-    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 0):
-        confusion_matrix[0][1] += 1
-    return (np.argmax(y_train)==np.argmax(prediction)), confusion_matrix
 
-
-def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
-    np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
-    np_arr = np_arr / temp_storage
-    x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
-    #x_train = temp_storage / 50
-    y_train = np.array(y)
-    prediction = model.predict(x_train)
-    #print(y_train)
-    #print(prediction)
-    return (np.argmax(y_train)==np.argmax(prediction))
-'''
 
 from keras.models import load_model
 j = 0
