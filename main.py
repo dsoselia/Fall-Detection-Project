@@ -168,10 +168,19 @@ while(iter<50000):
 from sklearn.ensemble import RandomForestClassifier
 #from sklearn.datasets import make_classification
 
-rf = RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
-            max_depth=3, max_features='auto', max_leaf_nodes=None,
-            min_impurity_decrease=0.0, min_impurity_split=None,
-            min_samples_leaf=1, min_samples_split=2,
-            min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1,
-            oob_score=False, random_state=0, verbose=0, warm_start=False)
-rf.fit(get_fall[0], get_fall[1])
+def random_forests_create():
+    rf = RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+                max_depth=3, max_features='auto', max_leaf_nodes=None,
+                min_impurity_decrease=0.0, min_impurity_split=None,
+                min_samples_leaf=1, min_samples_split=2,
+                min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1,
+                oob_score=False, random_state=0, verbose=0, warm_start=False)
+    return rf
+
+
+def random_forests_train(rf, X_train, Y_train):
+    rf.fit(X_train, Y_train)
+    return rf
+    
+    
+    #rf.fit(get_fall[0], get_fall[1])
