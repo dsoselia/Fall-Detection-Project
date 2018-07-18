@@ -137,19 +137,19 @@ while(iter<50000):
         if balance_needed:
             np_arr, y = get_fall()
         else:
-            np_arr, y = generate_numpy(j)
+            np_arr, y = row_to_numpy(j)
         lastnp = np_arr
         np_arr = np_arr / temp_storage
         #x_train = x_train / 50
         y_train = np.array(y)
-        x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
+        x_train = np.transpose(np_arr).reshape(1,sensorNum)
         model.fit(x_train, y_train, batch_size=1, nb_epoch=1, shuffle=False, verbose=0)
         #print(j)
         #j=random.randint(1, 5)
         #j=random.randint(1264, 1896)
         if(iter % 1000 == 0):
             model.save(modeln)
-            test()
+            #test()
             print(iter)
         iter+=1;
         balance_needed = not balance_needed
