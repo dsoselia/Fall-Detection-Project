@@ -77,7 +77,7 @@ from keras.layers import Conv1D
 import numpy as np
 from keras.models import load_model
 
-
+'''
 if not os.path.isfile(modeln):
     model = Sequential()
     model.add(Dense(sensorNum, input_dim=183, activation='relu'))
@@ -86,7 +86,7 @@ if not os.path.isfile(modeln):
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 else:
     model = load_model(modeln)
-
+'''
 model = Sequential()
 model.add(Dense(183, input_dim=183, activation='relu'))
 model.add(Dense(80, activation='relu'))
@@ -98,8 +98,7 @@ import random
 def get_fall(point = 0):
     fell = [0]
     while fell == [0]:
-        if point == 0:
-            point = falls[random.randint(0, len(falls))][0] + random.randint(3, 4)
+        point = falls[random.randint(0, len(falls))][0] + random.randint(10, 100)
         segment , fell = row_to_numpy(point)
     return segment , fell
 
@@ -134,20 +133,23 @@ def test():
     print(matrix)
     
 # train NN
-while(iter<50000):
+while(iter<5000000):
     j=random.randint(1, len(content)-50)
     #avred = not avred
     try:
         #print(iter)
+        print('Balance 0 : ' + str(balance_needed))
         if balance_needed:
             np_arr, y = get_fall()
         else:
             np_arr, y = row_to_numpy(j)
+        print('Balance : ' + str(balance_needed))
         lastnp = np_arr
         np_arr = np_arr / temp_storage
         #x_train = x_train / 50
         y_train = np.array(y)
         x_train = np.transpose(np_arr).reshape(1,sensorNum)
+        print('fit : ')
         model.fit(x_train, y_train)
         #print(j)
         #j=random.randint(1, 5)
@@ -159,9 +161,10 @@ while(iter<50000):
         iter+=1;
         balance_needed = not balance_needed
         #print('here')
+        print(iter)
     except (TypeError,IndexError):
-        #print('error raised at index ' +str(j))
-        #print(sys.exc_info()[0])
+        print('error raised at index ' +str(j))
+        print(sys.exc_info()[0])
         pass
     except:
         print(sys.exc_info()[0])
