@@ -80,13 +80,18 @@ from keras.models import load_model
 
 if not os.path.isfile(modeln):
     model = Sequential()
-    model.add(Dense(sensorNum, activation='relu'))
+    model.add(Dense(sensorNum, input_dim=183, activation='relu'))
     model.add(Dense(sensorNum/2, activation='relu'))
     model.add(Dense(2, activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 else:
     model = load_model(modeln)
 
+model = Sequential()
+model.add(Dense(183, input_dim=183, activation='relu'))
+model.add(Dense(80, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 import random
 
@@ -143,7 +148,7 @@ while(iter<50000):
         #x_train = x_train / 50
         y_train = np.array(y)
         x_train = np.transpose(np_arr).reshape(1,sensorNum)
-        model.fit(x_train, y_train, batch_size=1, nb_epoch=1, shuffle=False, verbose=0)
+        model.fit(x_train, y_train)
         #print(j)
         #j=random.randint(1, 5)
         #j=random.randint(1264, 1896)
