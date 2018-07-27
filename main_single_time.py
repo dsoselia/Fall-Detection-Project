@@ -114,6 +114,31 @@ for value in temp_storage:
     normalizer.append(float(value))
 temp_storage = np.array(normalizer)
 
+
+
+
+
+confusion_matrix = [[0,0],[0,0]]
+def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
+    np_arr, y = get_fall() if check_fall else row_to_numpy(point)
+    np_arr = np_arr / temp_storage
+    y_train = np.array(y)
+    x_train = np.transpose(np_arr).reshape(1,sensorNum)
+    prediction = model.predict(x_train)
+    #print(y_train)
+    #print(prediction)
+    if (y_train[0]==round(prediction[0][0]) and y_train[0] == 1):
+        confusion_matrix[0][0] += 1
+    elif (y_train[0]==round(prediction[0][0]) and y_train[0] == 0):
+        confusion_matrix[1][1] += 1
+    elif (y_train[0]!=round(prediction[0][0]) and y_train[0] == 0):
+        confusion_matrix[1][0] += 1
+    elif (y_train[0]!=round(prediction[0][0]) and y_train[0] == 1):
+        confusion_matrix[0][1] += 1
+    return (y_train[0]==round(prediction[0][0]))
+
+
+
 def test():
     matrix = [[0,0],[0,0]]
     fall = True    
@@ -121,12 +146,12 @@ def test():
     i = 0
     while i < 1000:
         try:
-            temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix = matrix)
+            temp = checkresult_confusion(check_fall = fall)
             correct += (temp)            
             i+=1
             fall = not fall
         except:
-            pass
+            print(sys.exc_info()[0])
     
     print('accuracy: ')
     print(correct)
@@ -170,7 +195,37 @@ while(iter<5000000):
         print(sys.exc_info()[0])
         raise
         
-        
+
+    
+'''
+confusion_matrix = [[0,0],[0,0]]
+def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
+    np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
+    np_arr = np_arr / temp_storage
+    y_train = np.array(y)
+    x_train = np.transpose(np_arr).reshape(1,sensorNum)
+    prediction = model.predict(x_train)
+    print(y_train)
+    print(prediction)
+    if (y_train[0]==round(prediction[0][0]) and y_train[0] == 1):
+        confusion_matrix[0][0] += 1
+    elif (y_train[0]==round(prediction[0][0]) and y_train[0] == 0):
+        confusion_matrix[1][1] += 1
+    elif (y_train[0]!=round(prediction[0][0]) and y_train[0] == 0):
+        confusion_matrix[1][0] += 1
+    elif (y_train[0]!=round(prediction[0][0]) and y_train[0] == 1):
+        confusion_matrix[0][1] += 1
+    return (y_train[0]==round(prediction[0][0]))
+'''
+    
+    
+    
+    
+    
+    
+    
+    
+    
 #train boosted decision tree
         
 from sklearn.ensemble import RandomForestClassifier
@@ -192,3 +247,6 @@ def random_forests_train(rf, X_train, Y_train):
     
     
     #rf.fit(get_fall[0], get_fall[1])
+    
+    
+
