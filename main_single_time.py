@@ -119,7 +119,7 @@ temp_storage = np.array(normalizer)
 
 
 confusion_matrix = [[0,0],[0,0]]
-def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
+def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False, confusion_matrix = [[0,0],[0,0]]):
     np_arr, y = get_fall() if check_fall else row_to_numpy(point)
     np_arr = np_arr / temp_storage
     y_train = np.array(y)
@@ -135,18 +135,19 @@ def checkresult_confusion(point = random.randint(1, len(content)-50), length = r
         confusion_matrix[1][0] += 1
     elif (y_train[0]!=round(prediction[0][0]) and y_train[0] == 1):
         confusion_matrix[0][1] += 1
-    return (y_train[0]==round(prediction[0][0]))
+    return (y_train[0]==round(prediction[0][0])), confusion_matrix
 
-
+modeln='a.h5'
+model = load_model('a.h5')
 
 def test():
     matrix = [[0,0],[0,0]]
     fall = True    
     correct = 0
     i = 0
-    while i < 1000:
+    while i < 100:
         try:
-            temp = checkresult_confusion(check_fall = fall)
+            temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix =matrix )
             correct += (temp)            
             i+=1
             fall = not fall
