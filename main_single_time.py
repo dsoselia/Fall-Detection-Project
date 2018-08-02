@@ -154,7 +154,7 @@ Y = []
 iter = 0
 # prep numpy for random forest
 balance_needed = False
-while(iter<1000):
+while(iter<10000):
     j=random.randint(1, int((len(content)-50)))
     print(j)
     #avred = not avred
@@ -194,7 +194,7 @@ Y_1 = []
 iter = 0
 # prep numpy for random forest
 balance_needed = False
-while(iter<1000):
+while(iter<5000):
     j=random.randint(1, int((len(content)-50)))
     print(j)
     #avred = not avred
@@ -238,7 +238,7 @@ y_pred = model.predict(X_t)
 predictions = [round(value) for value in y_pred]
 # evaluate predictions
 accuracy = accuracy_score(Y_t, predictions)
-print("Training Accuracy: %.2f%%" % (Y_t * 100.0))
+print("Training Accuracy: %.2f%%" % (accuracy * 100.0))
 import sklearn
 print(sklearn.metrics.precision_score(Y_t, predictions))
 print(sklearn.metrics.recall_score(Y_t, predictions))
