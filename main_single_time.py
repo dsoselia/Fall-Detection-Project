@@ -237,7 +237,7 @@ model.fit(X_t, Y_t)
 y_pred = model.predict(X_t)
 predictions = [round(value) for value in y_pred]
 # evaluate predictions
-accuracy = accuracy_score(Y_test, predictions)
+accuracy = accuracy_score(Y_t, predictions)
 print("Training Accuracy: %.2f%%" % (Y_t * 100.0))
 import sklearn
 print(sklearn.metrics.precision_score(Y_t, predictions))
