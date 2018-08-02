@@ -238,6 +238,9 @@ predictions = [round(value) for value in y_pred]
 # evaluate predictions
 accuracy = accuracy_score(Y_test, predictions)
 print("Accuracy: %.2f%%" % (accuracy * 100.0))
+import sklearn
+print(sklearn.metrics.precision_score(Y_test, predictions))
+print(sklearn.metrics.recall_score(Y_test, predictions))
 '''
 confusion_matrix = [[0,0],[0,0]]
 def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
