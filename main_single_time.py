@@ -228,7 +228,7 @@ Y_t = np.array(Y)
 Y_t = Y_t.reshape(Y_t.shape[0])
 X_test = np.array(X_1)
 Y_test = np.array(Y_1)
-Y_test = Y_t.reshape(Y_test.shape[0])
+Y_test = Y_test.reshape(Y_test.shape[0])
 model = XGBClassifier()
 model.fit(X_t, Y_t)
 
