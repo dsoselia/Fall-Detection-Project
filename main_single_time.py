@@ -231,13 +231,27 @@ Y_test = np.array(Y_1)
 Y_test = Y_t.reshape(Y_t.shape[0])
 model = XGBClassifier()
 model.fit(X_t, Y_t)
-model.predict(X_t)
-Y_t[5]=1
+
+
+
+y_pred = model.predict(X_t)
+predictions = [round(value) for value in y_pred]
+# evaluate predictions
+accuracy = accuracy_score(Y_test, predictions)
+print("Training Accuracy: %.2f%%" % (Y_t * 100.0))
+import sklearn
+print(sklearn.metrics.precision_score(Y_t, predictions))
+print(sklearn.metrics.recall_score(Y_t, predictions))
+
+
+
+
+
 y_pred = model.predict(X_test)
 predictions = [round(value) for value in y_pred]
 # evaluate predictions
 accuracy = accuracy_score(Y_test, predictions)
-print("Accuracy: %.2f%%" % (accuracy * 100.0))
+print("Testing Accuracy: %.2f%%" % (accuracy * 100.0))
 import sklearn
 print(sklearn.metrics.precision_score(Y_test, predictions))
 print(sklearn.metrics.recall_score(Y_test, predictions))
