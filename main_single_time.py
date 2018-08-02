@@ -19,7 +19,7 @@ falls=[] #saves fall start-end moments
 
 with open('merged.csv') as csv:
     content = csv.readlines()
-for i in range(len(content)):
+for i in range(int(len(content))):
     if('tart' in content[i]):
         falls.append([i])
     if('nd' in content[i]):
@@ -58,8 +58,9 @@ ml,mk = row_to_numpy(5)
 sensorNum = ml.shape[0]
 
 
-
+'''
 print(len((content[35232])))
+'''
 print(len(content[0]))
 
 
@@ -68,30 +69,8 @@ print(len(content[0]))
 
 
 
-from keras.models import Sequential
-from keras.layers import LSTM
-#from keras.layers import CuDNNLSTM as LSTM
 
-from keras.layers import Dense
-from keras.layers import Conv1D
 import numpy as np
-from keras.models import load_model
-
-'''
-if not os.path.isfile(modeln):
-    model = Sequential()
-    model.add(Dense(sensorNum, input_dim=183, activation='relu'))
-    model.add(Dense(sensorNum/2, activation='relu'))
-    model.add(Dense(2, activation='sigmoid'))
-    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-else:
-    model = load_model(modeln)
-'''
-model = Sequential()
-model.add(Dense(183, input_dim=183, activation='relu'))
-model.add(Dense(80, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))
-model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 import random
 
@@ -103,7 +82,6 @@ def get_fall(point = 0):
     return segment , fell
 
 
-from keras.models import load_model
 j = 0
 iter = 0
 balance_needed = False
@@ -115,7 +93,22 @@ for value in temp_storage:
 temp_storage = np.array(normalizer)
 
 
+from numpy import loadtxt
+from xgboost import XGBClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+'''
+np_arr, y = get_fall() if False else row_to_numpy(5)
+np_arr = np_arr / temp_storage
+y_train = np.array(y)
+x_train = np.transpose(np_arr).reshape(1,sensorNum)
 
+# fit model no training data
+model = XGBClassifier()
+model.fit(x_train, y_train)
+y_pred = model.predict(x_train)
+predictions = [round(value) for value in y_pred]
+'''
 
 
 confusion_matrix = [[0,0],[0,0]]
@@ -138,7 +131,6 @@ def checkresult_confusion(point = random.randint(1, len(content)-50), length = r
     return (y_train[0]==round(prediction[0][0])), confusion_matrix
 
 modeln='a.h5'
-model = load_model('a.h5')
 
 def test():
     matrix = [[0,0],[0,0]]
@@ -157,37 +149,31 @@ def test():
     print('accuracy: ')
     print(correct)
     print(matrix)
-    
-# train NN
-while(iter<5000000):
-    j=random.randint(1, len(content)-50)
+X = []
+Y = []
+iter = 0
+# prep numpy for random forest
+balance_needed = False
+while(iter<1000):
+    j=random.randint(1, int((len(content)-50)))
+    print(j)
     #avred = not avred
     try:
         #print(iter)
-        print('Balance 0 : ' + str(balance_needed))
+        #print('Balance 0 : ' + str(balance_needed))
         if balance_needed:
             np_arr, y = get_fall()
         else:
             np_arr, y = row_to_numpy(j)
-        print('Balance : ' + str(balance_needed))
+        #print('Balance : ' + str(balance_needed))
         lastnp = np_arr
         np_arr = np_arr / temp_storage
-        #x_train = x_train / 50
         y_train = np.array(y)
-        x_train = np.transpose(np_arr).reshape(1,sensorNum)
-        print('fit : ')
-        model.fit(x_train, y_train)
-        #print(j)
-        #j=random.randint(1, 5)
-        #j=random.randint(1264, 1896)
-        if(iter % 1000 == 0):
-            model.save(modeln)
-            #test()
-            print(iter)
+        x_train = np.transpose(np_arr).reshape(sensorNum)
+        X.append(x_train)
+        Y.append(y_train)
         iter+=1;
         balance_needed = not balance_needed
-        #print('here')
-        print(iter)
     except (TypeError,IndexError):
         print('error raised at index ' +str(j))
         print(sys.exc_info()[0])
@@ -195,9 +181,63 @@ while(iter<5000000):
     except:
         print(sys.exc_info()[0])
         raise
-        
 
-    
+
+
+j = 0
+iter = 0
+balance_needed = False
+lastnp = np.array([])
+
+X_1 = []
+Y_1 = []
+iter = 0
+# prep numpy for random forest
+balance_needed = False
+while(iter<1000):
+    j=random.randint(1, int((len(content)-50)))
+    print(j)
+    #avred = not avred
+    try:
+        #print(iter)
+        #print('Balance 0 : ' + str(balance_needed))
+        if balance_needed:
+            np_arr, y = get_fall()
+        else:
+            np_arr, y = row_to_numpy(j)
+        #print('Balance : ' + str(balance_needed))
+        lastnp = np_arr
+        np_arr = np_arr / temp_storage
+        y_train = np.array(y)
+        x_train = np.transpose(np_arr).reshape(sensorNum)
+        X_1.append(x_train)
+        Y_1.append(y_train)
+        iter+=1;
+        balance_needed = not balance_needed
+    except (TypeError,IndexError):
+        print('error raised at index ' +str(j))
+        print(sys.exc_info()[0])
+        pass
+    except:
+        print(sys.exc_info()[0])
+        raise
+
+ 
+X_t = np.array(X)
+Y_t = np.array(Y)
+Y_t = Y_t.reshape(Y_t.shape[0])
+X_test = np.array(X_1)
+Y_test = np.array(Y_1)
+Y_test = Y_t.reshape(Y_t.shape[0])
+model = XGBClassifier()
+model.fit(X_t, Y_t)
+model.predict(X_t)
+Y_t[5]=1
+y_pred = model.predict(X_test)
+predictions = [round(value) for value in y_pred]
+# evaluate predictions
+accuracy = accuracy_score(Y_test, predictions)
+print("Accuracy: %.2f%%" % (accuracy * 100.0))
 '''
 confusion_matrix = [[0,0],[0,0]]
 def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
@@ -218,6 +258,10 @@ def checkresult_confusion(point = random.randint(1, len(content)-50), length = r
         confusion_matrix[0][1] += 1
     return (y_train[0]==round(prediction[0][0]))
 '''
+'''
+from xgboost import plot_tree
+plot_tree(model, num_trees=7)
+'''
     
     
     
@@ -225,8 +269,7 @@ def checkresult_confusion(point = random.randint(1, len(content)-50), length = r
     
     
     
-    
-    
+'''
 #train boosted decision tree
         
 from sklearn.ensemble import RandomForestClassifier
@@ -251,3 +294,4 @@ def random_forests_train(rf, X_train, Y_train):
     
     
 
+'''
