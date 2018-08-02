@@ -154,7 +154,7 @@ Y = []
 iter = 0
 # prep numpy for random forest
 balance_needed = False
-while(iter<5):
+while(iter<2000):
     j=random.randint(1, int((len(content)-50)))
     #print(j)
     #avred = not avred
@@ -194,7 +194,7 @@ Y_1 = []
 iter = 0
 # prep numpy for random forest
 balance_needed = False
-while(iter<1000):
+while(iter<400):
     j=random.randint(1, int((len(content)-50)))
     #print(j)
     #avred = not avred
