@@ -24,7 +24,7 @@ a = np.array([[4, 6, 10],[ 3, 10, 13],[-2, -6, -8]])
 from sklearn import preprocessing
 a = X_t
 a = preprocessing.normalize(a)
-pca = PCA(n_components=3)
+pca = PCA(n_components=2)
 pca.fit(a)
 print(pca.explained_variance_ratio_)
 print(pca.singular_values_)
@@ -45,22 +45,29 @@ X = a
 y = Y_t
 pca = PCA(n_components=2)
 X_r = pca.fit(X).transform(X)
+import random
 
 plt.figure()
-colors = ['navy', 'turquoise']
-target_names = ['navy', 'turquoise'] 
+colors = [ 'blue', 'red']
+target_names = [ 'nofall', 'fall'] 
 lw = 2
 
-for color, i, target_name in zip(colors, [0, 1, 2], target_names):
+for color, i, target_name in zip(colors, [0, 1], target_names):
     plt.scatter(X_r[y == i, 0], X_r[y == i, 1], color=color, alpha=.8, lw=lw,
                 label=target_name)
 plt.legend(loc='best', shadow=False, scatterpoints=1)
 plt.title('PCA')
 
-plt.figure()
 
-for i in range(50):
-    plt.scatter(X_r[i, 0], X_r[i, 1], color=colors[y[i]])   
+
+
+
+plt.figure()
+labs = ['nofall', 'fall']
+for i in range(500):
+    plt.scatter(X_r[i, 0], X_r[i, 1], color=colors[y[i]], label = labs[y[i]] )   
+plt.legend(loc='upper left')
+
 
 j = abs(E.covariance_[0])
 indices = np.where(j > 0.9*j.max())
@@ -109,9 +116,15 @@ indices = np.where(j > 0.9*j.max())
 CSV = np.array([np.array(labels), pca.components_[0], pca.components_[1], pca.components_[2], model.feature_importances_ , NN, np.array(accuracys_train), np.array(accuracys_test)])
 np.savetxt("PCA.csv", CSV, delimiter=",", fmt='%s')
 from matplotlib import pyplot
-pyplot.bar(range(len(model.feature_importances_)), model.feature_importances_)
+pyplot.bar(range(len(temp)), temp)
 pyplot.show()
 
-pyplot.bar(range(len(np.array(accuracys_test))), np.array(accuracys_test))
+pyplot.bar(range(len(np.array(accuracys_test))), np.array(NN))
 pyplot.show()
+
+
+
+
+
+
 
