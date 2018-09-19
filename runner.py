@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+import os
+os.chdir('RNN')
+import main
+import test
+os.chdir('../')
+os.chdir('single_point')
+import main_single_time.py
+os.chdir('../')
+os.chdir('bdt')
+import bdt
+import train_der
