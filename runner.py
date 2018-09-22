@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+print('hello')
 import os
 os.chdir('RNN')
 os.listdir('/')
