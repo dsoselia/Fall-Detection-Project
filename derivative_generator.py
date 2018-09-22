@@ -19,7 +19,7 @@ def nth_derivative (N, order = 1):
 def derivative(n):
     if type(n) is not np.ndarray: 
         n = np.array(n)
-    return np.gradient(n)[1]
+    return np.gradient(n)[0]
 
 def gradient(y, dx=1):
     """Returns second order accurate derivative of y using constant step size dx."""

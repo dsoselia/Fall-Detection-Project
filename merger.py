@@ -13,6 +13,7 @@ def strip(path):
     stripped = ""
     i = 0
     last = ""
+    falling = False
     for row in content:
         if (i==4):
             if ('Marker' not in row):
@@ -23,11 +24,15 @@ def strip(path):
             new_row = row
             if (end):
                 new_row = new_row[:-1]+',0,\n'
+            elif ('all' in new_row):
+                falling = ~falling
             new_row = new_row.split(',')
             if(start):
                 new_row = new_row[3:]
             else:
-                 new_row = new_row[1:]
+                new_row = new_row[1:]
+            if falling:
+                new_row[-2] = '1'
             new_row = ','.join(new_row)
             last = new_row
             stripped += new_row
