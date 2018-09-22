@@ -5,7 +5,7 @@ Created on Sun Jul  1 00:41:01 2018
 
 @author: davitisoselia
 """
-import merger
+import .merger
 
 
 modeln='fall_detection_1.h5' # model name
