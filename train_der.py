@@ -109,13 +109,13 @@ X_train = []
 Y_train = []
 balance_needed = False
 iter = 0
-while(iter<5000):
+while(iter<2000):
     if balance_needed:
         j= index_fall[random.randint(1, index_fall.shape[0] )]
     else:
         j= index_nofall[random.randint(1, index_nofall.shape[0] )]
     #print('Balance : ' + str(balance_needed))
-    X_train.append(X[j])
+    X_train.append(Z[j])
     Y_train.append(Y_t[j])
     iter+=1;
     balance_needed = not balance_needed
@@ -134,7 +134,7 @@ while(iter<400):
     else:
         j= index_nofall[random.randint(1, index_nofall.shape[0]-50)]
     #print('Balance : ' + str(balance_needed))
-    X_test.append(X[j])
+    X_test.append(Z[j])
     Y_test.append(Y_t[j])
     iter+=1;
     balance_needed = not balance_needed
