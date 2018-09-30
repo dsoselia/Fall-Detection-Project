@@ -54,7 +54,7 @@ drop_in = 0.2
 drop_hidden = 0.5
 
 model = Sequential()
-model.add(DropoutNoScale(drop_in, input_shape=(784,), name='drop0'))
+model.add(DropoutNoScale(drop_in, input_shape=(183,), name='drop0'))
 for i in range(num_hidden):
     model.add(BinaryDense(num_unit, H=H, kernel_lr_multiplier=kernel_lr_multiplier, use_bias=use_bias,
               name='dense{}'.format(i+1)))
