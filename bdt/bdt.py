@@ -5,11 +5,11 @@ Created on Sun Jul  1 00:41:01 2018
 
 @author: davitisoselia
 """
-import merger
+from . import merger
 
 
-modeln='fall_detection_1.h5' # model name
-merged_path = 'merged.csv'
+modeln='bdt/fall_detection_1.h5' # model name
+merged_path = 'bdt/merged.csv'
 import os.path
 
 if not os.path.isfile(merged_path):
@@ -257,60 +257,3 @@ print("Testing Accuracy: %.2f%%" % (accuracy * 100.0))
 import sklearn
 print(sklearn.metrics.precision_score(Y_test, predictions))
 print(sklearn.metrics.recall_score(Y_test, predictions))
-'''
-confusion_matrix = [[0,0],[0,0]]
-def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
-    np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
-    np_arr = np_arr / temp_storage
-    y_train = np.array(y)
-    x_train = np.transpose(np_arr).reshape(1,sensorNum)
-    prediction = model.predict(x_train)
-    print(y_train)
-    print(prediction)
-    if (y_train[0]==round(prediction[0][0]) and y_train[0] == 1):
-        confusion_matrix[0][0] += 1
-    elif (y_train[0]==round(prediction[0][0]) and y_train[0] == 0):
-        confusion_matrix[1][1] += 1
-    elif (y_train[0]!=round(prediction[0][0]) and y_train[0] == 0):
-        confusion_matrix[1][0] += 1
-    elif (y_train[0]!=round(prediction[0][0]) and y_train[0] == 1):
-        confusion_matrix[0][1] += 1
-    return (y_train[0]==round(prediction[0][0]))
-'''
-'''
-from xgboost import plot_tree
-plot_tree(model, num_trees=7)
-'''
-    
-    
-    
-    
-    
-    
-    
-'''
-#train boosted decision tree
-        
-from sklearn.ensemble import RandomForestClassifier
-#from sklearn.datasets import make_classification
-
-def random_forests_create():
-    rf = RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
-                max_depth=3, max_features='auto', max_leaf_nodes=None,
-                min_impurity_decrease=0.0, min_impurity_split=None,
-                min_samples_leaf=1, min_samples_split=2,
-                min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1,
-                oob_score=False, random_state=0, verbose=0, warm_start=False)
-    return rf
-
-
-def random_forests_train(rf, X_train, Y_train):
-    rf.fit(X_train, Y_train)
-    return rf
-    
-    
-    #rf.fit(get_fall[0], get_fall[1])
-    
-    
-
-'''

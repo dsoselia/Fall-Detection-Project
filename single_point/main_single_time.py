@@ -5,11 +5,11 @@ Created on Sun Jul  1 00:41:01 2018
 
 @author: davitisoselia
 """
-import merger
+from . import merger
 
 
-modeln='fall_detection_1.h5' # model name
-merged_path = 'merged.csv'
+modeln='single_point/fall_detection_1.h5' # model name
+merged_path = 'single_point/merged.csv'
 import os.path
 
 if not os.path.isfile(merged_path):
@@ -17,7 +17,7 @@ if not os.path.isfile(merged_path):
 
 falls=[] #saves fall start-end moments
 
-with open('merged.csv') as csv:
+with open(merged_path) as csv:
     content = csv.readlines()
 for i in range(len(content)):
     if('tart' in content[i]):
@@ -137,8 +137,8 @@ def checkresult_confusion(point = random.randint(1, len(content)-50), length = r
         confusion_matrix[0][1] += 1
     return (y_train[0]==round(prediction[0][0])), confusion_matrix
 
-modeln='a.h5'
-model = load_model('a.h5')
+#modeln='a.h5'
+#model = load_model('a.h5')
 
 def test():
     matrix = [[0,0],[0,0]]
