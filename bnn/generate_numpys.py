@@ -88,6 +88,14 @@ temp_storage = np.array(normalizer)
 
 
 
+
+
+
+
+
+X = []
+Y = []
+iter = 0
 # prep numpy for random forest
 balance_needed = False
 while(iter<2000):
