@@ -61,14 +61,14 @@ for i in range(num_hidden):
     model.add(BatchNormalization(epsilon=epsilon, momentum=momentum, name='bn{}'.format(i+1)))
     model.add(Activation(binary_tanh, name='act{}'.format(i+1)))
     model.add(DropoutNoScale(drop_hidden, name='drop{}'.format(i+1)))
-model.add(BinaryDense(10, H=H, kernel_lr_multiplier=kernel_lr_multiplier, use_bias=use_bias,
+model.add(BinaryDense(1, H=H, kernel_lr_multiplier=kernel_lr_multiplier, use_bias=use_bias,
           name='dense'))
 model.add(BatchNormalization(epsilon=epsilon, momentum=momentum, name='bn'))
 
 
 
 opt = Adam(lr=lr_start) 
-model.compile(loss='squared_hinge', optimizer=opt, metrics=['acc'])
+model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['acc'])
 
 lr_scheduler = LearningRateScheduler(lambda e: lr_start * lr_decay ** e)
 from . import generate_numpys
