@@ -5,19 +5,20 @@ Created on Sun Jul  1 00:41:01 2018
 
 @author: davitisoselia
 """
-import .merger
+from . import rnn_merger
 
 
 modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
+directory = 'RNN/'
 import os.path
 
 if not os.path.isfile(merged_path):
-    merger.merge()
+    rnn_merger.merge()
 
 falls=[] #saves fall start-end moments
 
-with open('merged.csv') as csv:
+with open(directory + 'merged.csv') as csv:
     content = csv.readlines()
 for i in range(len(content)):
     if('tart' in content[i]):
@@ -89,7 +90,7 @@ import numpy as np
 from keras.models import load_model
 
 
-if not os.path.isfile(modeln):
+if not os.path.isfile(directory + modeln):
     model = Sequential()
     model.add(LSTM(25, return_sequences=True, stateful=True, input_shape=(None, sensorNum),
              batch_input_shape=(1, None, sensorNum)))
@@ -101,7 +102,7 @@ if not os.path.isfile(modeln):
                   optimizer='rmsprop',
                   metrics=['accuracy'])
 else:
-    model = load_model(modeln)
+    model = load_model(directory + modeln)
 
 
 import random
@@ -191,7 +192,7 @@ while(iter<50000):
         #j=random.randint(1, 5)
         #j=random.randint(1264, 1896)
         if(iter % 1000 == 0):
-            model.save(modeln)
+            model.save(directory+ modeln)
             test()
             print(iter)
         iter+=1;
