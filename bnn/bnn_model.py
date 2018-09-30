@@ -37,7 +37,7 @@ kernel_lr_multiplier = 'Glorot'
 
 # network
 num_unit = 120
-num_hidden = 3
+num_hidden = 1
 use_bias = False
 
 # learning rate schedule
