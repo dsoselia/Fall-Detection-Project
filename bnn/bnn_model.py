@@ -29,7 +29,7 @@ def binary_tanh(x):
     return binary_tanh_op(x)
 
 batch_size = 100
-nb_epoch = 20
+nb_epoch = 50
 nb_classes = 10
 
 H = 'Glorot'
