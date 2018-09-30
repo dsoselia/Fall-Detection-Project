@@ -17,7 +17,7 @@ if not os.path.isfile(merged_path):
 
 falls=[] #saves fall start-end moments
 
-with open('merged.csv') as csv:
+with open(merged_path) as csv:
     content = csv.readlines()
 for i in range(int(len(content))):
     if('tart' in content[i]):

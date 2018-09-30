@@ -36,7 +36,7 @@ H = 'Glorot'
 kernel_lr_multiplier = 'Glorot'
 
 # network
-num_unit = 2048
+num_unit = 120
 num_hidden = 3
 use_bias = False
 
