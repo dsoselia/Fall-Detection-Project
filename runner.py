@@ -1,14 +1,5 @@
 # -*- coding: utf-8 -*-
-print('hello')
-import os
-os.chdir('RNN')
-os.listdir('/')
-import main
-import test
-os.chdir('../')
-os.chdir('single_point')
-import main_single_time.py
-os.chdir('../')
-os.chdir('bdt')
-import bdt
-import train_der
+from bnn import bnn_model
+from RNN import main
+from bdt import bdt
+from single_point import main_single_time
