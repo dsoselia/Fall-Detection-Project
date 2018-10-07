@@ -6,7 +6,7 @@ Created on Sun Jul  1 00:41:01 2018
 @author: davitisoselia
 """
 from . import rnn_merger
-
+from . import model_evaluate
 
 modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
@@ -126,9 +126,9 @@ def checkresult_confusion(point = random.randint(1, len(content)-50), length = r
     elif (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 1):
         confusion_matrix[1][1] += 1
     elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 1):
-        confusion_matrix[1][0] += 1
-    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 0):
         confusion_matrix[0][1] += 1
+    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 0):
+        confusion_matrix[1][0] += 1
     return (np.argmax(y_train)==np.argmax(prediction)), confusion_matrix
 
 '''
@@ -169,9 +169,12 @@ def test():
         except:
             pass
     
-    print('accuracy: ')
-    print(correct)
+    print('accuracy: {0}',format(correct))
+    print("confusion matrix: ")
     print(matrix)
+    print('specificity: {0} '.format(model_evaluate.specificity(matrix)))
+    print('percision: {0} '.format(model_evaluate.percision(matrix)))
+    print('recall: {0} '.format(model_evaluate.recall(matrix)))
     
 while(iter<50000):
     j=random.randint(1, len(content)-50)
