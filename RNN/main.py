@@ -13,7 +13,7 @@ merged_path = 'merged.csv'
 directory = 'RNN/'
 import os.path
 
-if not os.path.isfile(merged_path):
+if not os.path.isfile(directory + merged_path):
     rnn_merger.merge()
 
 falls=[] #saves fall start-end moments
@@ -43,7 +43,7 @@ import sys
 def generate_numpy(point, length = 500):
     segment = []
     falls = 0;
-    fell = [[0,1]]
+    fell = [0]
     for i in range(point, point + length):
         if ('all' in content[i][-1]):
             falls+=1
@@ -52,7 +52,7 @@ def generate_numpy(point, length = 500):
     if (falls == 1):
         return
     elif(falls>1):
-        fell = [[1,0]]
+        fell = [1]
     for i in range(len(segment)):
         for j in range(len(segment[i])):
             segment[i][j] = float(segment[i][j])
@@ -97,7 +97,7 @@ if not os.path.isfile(directory + modeln):
     model.add(LSTM(20, recurrent_dropout=0.2))
     #model.add(Dense(30, activation='relu'))
     #model.add(Dense(10, activation='relu'))
-    model.add(Dense(2, activation='sigmoid'))
+    model.add(Dense(1, activation='sigmoid'))
     model.compile(loss='binary_crossentropy',
                   optimizer='rmsprop',
                   metrics=['accuracy'])
@@ -113,23 +113,30 @@ def get_fall(point = 0, length = random.randint(300, 1500)):
         point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
     segment , fell = generate_numpy(point, length)
     return segment , fell
-
+log_y = []
+log_predicted = []
 def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False,  confusion_matrix = [[0,0],[0,0]]):
     np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
     np_arr = np_arr / temp_storage
     x_train = np.transpose(np_arr).reshape(1,np_arr.shape[0],np_arr.shape[1])
     #x_train = temp_storage / 50
     y_train = np.array(y)
+    log_y.append(y_train[0])
+    #print("this iteration:  ")
+    #print(y_train)
     prediction = model.predict(x_train)
-    if (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 0):
+    log_predicted.append(prediction[0][0])
+    #print(np.round(prediction))
+    #print(y_train == np.round(prediction)[0] )
+    if ((y_train)==np.round(prediction)[0] and y_train[0] == 1):
         confusion_matrix[0][0] += 1
-    elif (np.argmax(y_train)==np.argmax(prediction) and np.argmax(y_train) == 1):
+    elif ((y_train)==np.round(prediction)[0] and (y_train)[0] == 0):
         confusion_matrix[1][1] += 1
-    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 1):
+    elif ((y_train)!=np.round(prediction)[0] and (y_train)[0] == 0):
         confusion_matrix[0][1] += 1
-    elif (np.argmax(y_train)!=np.argmax(prediction) and np.argmax(y_train) == 0):
+    elif ((y_train)!=np.round(prediction)[0] and (y_train)[0] == 1):
         confusion_matrix[1][0] += 1
-    return (np.argmax(y_train)==np.argmax(prediction)), confusion_matrix
+    return ((y_train)==np.round(prediction)[0]), confusion_matrix
 
 '''
 def checkresult(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False):
@@ -154,29 +161,37 @@ normalizer = []
 for value in temp_storage:
     normalizer.append(float(value))
 temp_storage = np.array(normalizer)
-
+from sklearn import metrics
 def test():
     matrix = [[0,0],[0,0]]
     fall = True    
     correct = 0
     i = 0
-    while i < 1000:
+    while i < 100:# TODO: 
         try:
             temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix = matrix)
             correct += (temp)            
             i+=1
-            fall = not fall
-        except:
+            fall = not fall #for balancing
+        except: 
             pass
     
-    print('accuracy: {0}',format(correct))
+    print('accuracy: {0}'.format(correct))
     print("confusion matrix: ")
     print(matrix)
     print('specificity: {0} '.format(model_evaluate.specificity(matrix)))
     print('percision: {0} '.format(model_evaluate.percision(matrix)))
     print('recall: {0} '.format(model_evaluate.recall(matrix)))
+    np.save(directory + 'y.npy', log_y)
+    np.save(directory + 'y_predicted.npy', log_predicted)
+    fpr, tpr, thresholds = metrics.roc_curve(log_y, log_predicted, pos_label=1)
+    np.save(directory + 'fpr.npy', fpr)
+    np.save(directory + 'tpr.npy', tpr)
+    np.save(directory + 'thresholds.npy', thresholds)
+    del log_y[:]
+    del log_predicted[:]
     
-while(iter<50000):
+while(iter<5000):
     j=random.randint(1, len(content)-50)
     #avred = not avred
     try:
@@ -194,10 +209,12 @@ while(iter<50000):
         #print(j)
         #j=random.randint(1, 5)
         #j=random.randint(1264, 1896)
-        if(iter % 1000 == 0):
+        if(iter % 5000 == 0):
             model.save(directory+ modeln)
+            print("testing: ")
             test()
             print(iter)
+            #break # TODO:
         iter+=1;
         balance_needed = not balance_needed
         #print('here')

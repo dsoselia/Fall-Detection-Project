@@ -16,3 +16,16 @@ def recall(matrix):
 def specificity(matrix):
     matrix = np.array(matrix)
     return matrix[1,1]/((matrix[1,1]+matrix[0,1]))
+
+
+def specificity(matrix):
+    matrix = np.array(matrix)
+    return matrix[1,1]/((matrix[1,1]+matrix[0,1]))
+
+def fps(matrix):
+    matrix = np.array(matrix)
+    return matrix[0,1]/((matrix[0,1]+matrix[1,1]))
+
+def tpr (matrix):
+    matrix = np.array(matrix)
+    return matrix[0,0]/((matrix[0,0]+matrix[1,0]))

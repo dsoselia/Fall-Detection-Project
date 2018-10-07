@@ -47,6 +47,7 @@ def merge(path = os.getcwd() + '/CSV_fall_data/**/*.csv', mergedPath = directory
     merged = ""
     for csv in csvs:
         merged += strip(csv) + '\n'
+        #break # TODO: remove
     open(mergedPath, 'w').write(merged)
 #merge()
 
