@@ -191,7 +191,7 @@ def test():
     del log_y[:]
     del log_predicted[:]
     
-while(iter<5000):
+while(iter<50000):
     j=random.randint(1, len(content)-50)
     #avred = not avred
     try:
