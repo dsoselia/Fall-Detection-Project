@@ -209,7 +209,7 @@ while(iter<50000):
         #print(j)
         #j=random.randint(1, 5)
         #j=random.randint(1264, 1896)
-        if(iter % 5000 == 0):
+        if(iter % 1000 == 0):
             model.save(directory+ modeln)
             print("testing: ")
             test()
