@@ -1,0 +1,464 @@
+﻿OPENDATA Layout.Pad_map [
+   base_pad_id: Layout.Pad [
+      split_pos: 0.5;
+      sections: [
+         oscill: Layout.Section [
+            selection: [
+               N0: "Acceleration";
+               N1: "Orientation angles";
+               N2: "Anatomic angles";
+            ];
+            cards: [
+               T"Anatomic angles": Layout.Card [
+                  panes: [
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.cervical.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.cervical.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.cervical.lateral;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.cervical.lateral;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.cervical.axial;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.cervical.axial;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lumbar.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lumbar.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lumbar.lateral;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lumbar.lateral;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lumbar.axial;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lumbar.axial;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.thoracic.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.thoracic.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.thoracic.lateral;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.thoracic.lateral;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.thoracic.axial;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.thoracic.axial;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.elbow.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.elbow.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.elbow.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.elbow.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.shoulder.total_flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.shoulder.total_flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.shoulder.total_flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.shoulder.total_flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.shoulder.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.shoulder.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.shoulder.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.shoulder.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.shoulder.abduction;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.shoulder.abduction;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.shoulder.abduction;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.shoulder.abduction;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.shoulder.rotation;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.shoulder.rotation;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.shoulder.rotation;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.shoulder.rotation;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.wrist.extension;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.wrist.extension;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.wrist.extension;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.wrist.extension;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.wrist.radial;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.wrist.radial;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.wrist.radial;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.wrist.radial;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.wrist.supination;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.wrist.supination;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.wrist.supination;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.wrist.supination;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.hip.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.hip.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.hip.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.hip.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.hip.abduction;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.hip.abduction;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.hip.abduction;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.hip.abduction;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.hip.rotation;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.hip.rotation;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.hip.rotation;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.hip.rotation;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.knee.flexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.knee.flexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.ankle.dorsiflexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.ankle.dorsiflexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.ankle.dorsiflexion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.ankle.dorsiflexion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.ankle.inversion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.ankle.inversion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.ankle.inversion;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.ankle.inversion;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.ankle.abduction;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.ankle.abduction;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.ankle.abduction;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.ankle.abduction;type.input.analog.angle;";
+                     ];
+                  ];
+               ];
+               T"Orientation angles": Layout.Card [
+                  panes: [
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.roll;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.course;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.course;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.pitch;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.pitch;type.input.analog.angle;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.roll;type.input.analog.angle;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.roll;type.input.analog.angle;";
+                     ];
+                  ];
+               ];
+               Acceleration: Layout.Card [
+                  panes: [
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.head.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.upper.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.upper.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.fore.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.arm.hand.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.upper.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.fore.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.arm.hand.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.spine.lower.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.pelvis.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.thigh.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.shank.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.foot.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.thigh.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.shank.accel.z;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.accel.x;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.accel.x;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.accel.y;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.accel.y;type.input.analog.accel;";
+                     ];
+                     T"device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.accel.z;type.input.analog.accel;": Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.rt.leg.foot.accel.z;type.input.analog.accel;";
+                     ];
+                  ];
+               ];
+               T"Tab 1": Layout.Card [
+                  panes: [
+                     pane__571399196_1: Layout.Pane [
+                        N0: "device.noraxon.imu.\\\\?\\usb#vid_16d0&pid_069b#68014065#{a5dcbf10-6530-11d2-901f-00c04fb951ed};line.human.lt.leg.knee.flexion;type.input.analog.angle;";
+                     ];
+                  ];
+               ];
+            ];
+         ];
+      ];
+   ];
+   pad__574511287: Layout.Pad [
+      split_pos: 0.5;
+      sections: [
+         picture: Layout.Section [
+            selection: [
+               N0: "Video/Animation";
+            ];
+            cards: [
+               T"Video/Animation": Layout.Card [
+                  panes: [
+                     T"Noraxon MyoMotion": Layout.Pane [
+                        N0: "Noraxon MyoMotion";
+                     ];
+                  ];
+               ];
+            ];
+         ];
+      ];
+      window: [
+         left: 0.380299985408783;
+         top: 0.783999979496002;
+         width: 36.9000015258789;
+         height: 32.0499992370605;
+         maximized: "false";
+         monitor: -1;
+      ];
+   ];
+];
