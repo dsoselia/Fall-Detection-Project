@@ -280,7 +280,8 @@ roc_auc = auc(log_y, log_predicted, reorder  = True)
 
 
 # Plot ROC curve
-plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
+#plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
+plt.plot(fpr, tpr, label='ROC curve GBT')
 plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
 #plt.xlim([0.0, 1.0])
 #plt.ylim([0.0, 1.0])
