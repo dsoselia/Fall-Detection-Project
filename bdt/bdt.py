@@ -13,12 +13,14 @@ merged_path = 'bdt/merged.csv'
 import os.path
 
 if not os.path.isfile(merged_path):
+    print("merging ...")
     merger.merge()
 
 falls=[] #saves fall start-end moments
 
 with open(merged_path) as csv:
     content = csv.readlines()
+print("preprocessing ...")    
 for i in range(int(len(content))):
     if('tart' in content[i]):
         falls.append([i])
@@ -26,7 +28,7 @@ for i in range(int(len(content))):
         falls[-1].append(i)
     content[i] = content[i].split(',')
 
-
+print("done rpeprocessing ...")
 #content = content[::10]
 
 '''
@@ -154,6 +156,7 @@ Y = []
 iter = 0
 # prep numpy for random forest
 balance_needed = False
+print("start training ...")
 while(iter<2000):
     j=random.randint(1, int((len(content)-50)))
     #print(j)
@@ -181,7 +184,7 @@ while(iter<2000):
     except:
         print(sys.exc_info()[0])
         raise
-
+print("finished training ...")
 
 
 j = 0
@@ -257,3 +260,34 @@ print("Testing Accuracy: %.2f%%" % (accuracy * 100.0))
 import sklearn
 print(sklearn.metrics.precision_score(Y_test, predictions))
 print(sklearn.metrics.recall_score(Y_test, predictions))
+
+
+from sklearn.metrics import roc_curve
+from sklearn.metrics import auc
+import matplotlib.pyplot as plt
+import numpy as np
+
+#log_y = bdt.Y_test
+#log_predicted = bdt.y_pred
+
+log_y = Y_test
+log_predicted = y_pred
+
+#log_y = np.array([1, 1, 0, 0])
+#log_predicted =  np.array([0.1, 0.4, 0.35, 0.8])
+fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
+roc_auc = auc(log_y, log_predicted, reorder  = True)
+
+
+# Plot ROC curve
+#plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
+plt.plot(fpr, tpr, label='ROC curve GBT')
+plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
+#plt.xlim([0.0, 1.0])
+#plt.ylim([0.0, 1.0])
+plt.xlabel('False Positive Rate or (1 - Specifity)')
+plt.ylabel('True Positive Rate or (Sensitivity)')
+plt.title('Receiver Operating Characteristic')
+plt.legend(loc="lower right")
+plt.savefig('foo.png')
+#finish

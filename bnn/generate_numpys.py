@@ -16,6 +16,7 @@ merged_path = 'bnn/merged.csv'
 
 
 if not os.path.isfile(merged_path):
+    print("merging ...")
     merger.merge()
 
 falls=[] #saves fall start-end moments

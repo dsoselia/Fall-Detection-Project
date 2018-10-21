@@ -74,6 +74,7 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 
 lr_scheduler = LearningRateScheduler(lambda e: lr_start * lr_decay ** e)
 from . import generate_numpys
+print("merged ...")
 X_train = generate_numpys.X_t
 Y_train = generate_numpys.Y_t
 X_test = generate_numpys.X_test
@@ -88,9 +89,37 @@ history = model.fit(X_train, Y_train,
                     batch_size=batch_size, nb_epoch=nb_epoch,
                     verbose=1, validation_data=(X_test, Y_test))
 score = model.evaluate(X_test, Y_test, verbose=0)
+
 print('Test score:', score[0])
 print('Test accuracy:', score[1])
 
 
+y_pred = score = model.predict(X_test)
 
 
+log_y = Y_test
+log_predicted = y_pred
+
+from sklearn.metrics import roc_curve
+from sklearn.metrics import auc
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+#log_y = np.array([1, 1, 0, 0])
+#log_predicted =  np.array([0.1, 0.4, 0.35, 0.8])
+fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
+roc_auc = auc(log_y, log_predicted, reorder  = True)
+
+
+# Plot ROC curve
+#plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
+plt.plot(fpr, tpr, label='BNN ROC curve')
+plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
+#plt.xlim([0.0, 1.0])
+#plt.ylim([0.0, 1.0])
+plt.xlabel('False Positive Rate or (1 - Specifity)')
+plt.ylabel('True Positive Rate or (Sensitivity)')
+plt.title('Receiver Operating Characteristic')
+plt.legend(loc="lower right")
+plt.savefig('foo.png')

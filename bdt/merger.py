@@ -51,6 +51,7 @@ def merge(path = os.getcwd() + '/CSV_fall_data/**/*.csv', mergedPath = 'bdt/merg
     merged = ""
     for csv in csvs:
         merged += strip(csv) + '\n'
+        #break #FIXME remove break
     open(mergedPath, 'w').write(merged)
 #merge()
 

@@ -33,8 +33,8 @@ def strip(path):
             last = new_row
             stripped += new_row
         i+=1
-        if (i%1000 == 0):
-            print('progress ' + str(i) + '/' + str(len(content)))
+        if (i%10000 == 0):
+            print('progress ' + str(i) + '/' + str(len(content)), end="\r")
             pass
     print(path + str(len(last.split(','))))
     return stripped
@@ -47,7 +47,7 @@ def merge(path = os.getcwd() + '/CSV_fall_data/**/*.csv', mergedPath = directory
     merged = ""
     for csv in csvs:
         merged += strip(csv) + '\n'
-        break # TODO: remove break
+        #break # TODO: remove break
     open(mergedPath, 'w').write(merged)
 #merge()
 
