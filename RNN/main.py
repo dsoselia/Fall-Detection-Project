@@ -219,6 +219,9 @@ while(iter<50000): #FIXME  50000
             test()
             print(iter)
             #break # TODO:
+        elif(iter % 1000 == 0): 
+            print(str(iter), end="\r")
+            #break # TODO:
         iter+=1;
         balance_needed = not balance_needed
         #print('here')
@@ -261,4 +264,19 @@ plt.ylabel('True Positive Rate or (Sensitivity)')
 plt.title('Receiver Operating Characteristic')
 plt.legend(loc="lower right")
 plt.savefig('foo.png')
+'''
+
+'''
+import time
+
+print("ka")
+time.sleep(1)
+print("ja\r", end="\r")
+time.sleep(1)
+print("ba")
+import datetime
+def clock():
+     while True:
+         print(datetime.datetime.now().strftime("%H:%M:%S"), end="\r")
+         time.sleep(1)
 '''
