@@ -12,7 +12,7 @@ modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
 directory = 'RNN/'
 import os.path
-
+os.remove(directory + merged_path)
 if not os.path.isfile(directory + merged_path):
     print("prepairing to merge ...")
     rnn_merger.merge()
@@ -165,6 +165,7 @@ for value in temp_storage:
 temp_storage = np.array(normalizer)
 from sklearn import metrics
 def test():
+    print("testing ...")
     matrix = [[0,0],[0,0]]
     fall = True    
     correct = 0
@@ -193,8 +194,8 @@ def test():
     np.save(directory + 'thresholds.npy', thresholds)
     del log_y[:]
     del log_predicted[:]
-    
-while(iter<4): #FIXM<E  50000
+print('started training ...')    
+while(iter<50000): #FIXME  50000
     j=random.randint(1, len(content)-50)
     #avred = not avred
     try:
@@ -212,7 +213,7 @@ while(iter<4): #FIXM<E  50000
         #print(j)
         #j=random.randint(1, 5)
         #j=random.randint(1264, 1896)
-        if(iter % 2 == 0): #FIXME set 5K
+        if(iter % 5000 == 0): #FIXME set 5K
             #model.save(directory+ modeln) #FIXME activate
             print("testing: ")
             test()
@@ -228,7 +229,7 @@ while(iter<4): #FIXM<E  50000
     except:
         print(sys.exc_info()[0])
         raise
-
+ 
 
 
 
@@ -248,6 +249,8 @@ thresholds =   np.load(directory + 'thresholds.npy')
 fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
 roc_auc = auc(log_y, log_predicted, reorder  = True)
 
+
+'''
 # Plot ROC curve
 plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
 #plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
