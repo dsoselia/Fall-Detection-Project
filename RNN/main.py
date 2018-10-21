@@ -14,7 +14,9 @@ directory = 'RNN/'
 import os.path
 
 if not os.path.isfile(directory + merged_path):
+    print("prepairing to merge ...")
     rnn_merger.merge()
+    print('created '+ directory + merged_path)
 
 falls=[] #saves fall start-end moments
 
@@ -173,7 +175,8 @@ def test():
             correct += (temp)            
             i+=1
             fall = not fall #for balancing
-        except: 
+        except:
+            print(sys.exc_info()[0])
             pass
     
     print('accuracy: {0}'.format(correct))
@@ -191,7 +194,7 @@ def test():
     del log_y[:]
     del log_predicted[:]
     
-while(iter<50000):
+while(iter<4): #FIXM<E  50000
     j=random.randint(1, len(content)-50)
     #avred = not avred
     try:
@@ -209,8 +212,8 @@ while(iter<50000):
         #print(j)
         #j=random.randint(1, 5)
         #j=random.randint(1264, 1896)
-        if(iter % 1000 == 0):
-            model.save(directory+ modeln)
+        if(iter % 2 == 0): #FIXME set 5K
+            #model.save(directory+ modeln) #FIXME activate
             print("testing: ")
             test()
             print(iter)
@@ -225,3 +228,33 @@ while(iter<50000):
     except:
         print(sys.exc_info()[0])
         raise
+
+
+
+
+
+from sklearn.metrics import roc_curve
+from sklearn.metrics import auc
+import matplotlib.pyplot as plt
+import numpy as np
+log_y  =    np.load(directory + 'y.npy')
+log_predicted =     np.load(directory + 'y_predicted.npy')
+fpr =     np.load(directory + 'fpr.npy')
+tpr =    np.load(directory + 'tpr.npy')
+thresholds =   np.load(directory + 'thresholds.npy')
+
+#log_y = np.array([1, 1, 0, 0])
+#log_predicted =  np.array([0.1, 0.4, 0.35, 0.8])
+fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
+roc_auc = auc(log_y, log_predicted, reorder  = True)
+
+# Plot ROC curve
+plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
+#plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
+#plt.xlim([0.0, 1.0])
+#plt.ylim([0.0, 1.0])
+plt.xlabel('False Positive Rate or (1 - Specifity)')
+plt.ylabel('True Positive Rate or (Sensitivity)')
+plt.title('Receiver Operating Characteristic')
+plt.legend(loc="lower right")
+plt.savefig('foo.png')
