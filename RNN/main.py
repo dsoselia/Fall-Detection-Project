@@ -12,7 +12,8 @@ modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
 directory = 'RNN/'
 import os.path
-os.remove(directory + merged_path)
+if  os.path.isfile(directory + merged_path):
+    os.remove(directory + merged_path)
 if not os.path.isfile(directory + merged_path):
     print("prepairing to merge ...")
     rnn_merger.merge()
