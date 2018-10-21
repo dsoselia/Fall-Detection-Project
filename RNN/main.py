@@ -171,6 +171,7 @@ def test():
     correct = 0
     i = 0
     while i < 100:# TODO: 
+        print("testing iter "+str(i), end="\r")
         try:
             temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix = matrix)
             correct += (temp)            
@@ -222,6 +223,7 @@ while(iter<50000): #FIXME  50000
         elif(iter % 1000 == 0): 
             print(str(iter), end="\r")
             #break # TODO:
+        print(str(iter), end="\r")
         iter+=1;
         balance_needed = not balance_needed
         #print('here')
