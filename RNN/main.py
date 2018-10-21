@@ -171,7 +171,7 @@ def test():
     fall = True    
     correct = 0
     i = 0
-    while i < 100:# TODO: 
+    while i < 1000:# TODO: 
         print("testing iter "+str(i), end="\r")
         try:
             temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix = matrix)
