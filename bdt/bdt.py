@@ -6,7 +6,7 @@ Created on Sun Jul  1 00:41:01 2018
 @author: davitisoselia
 """
 from . import merger
-
+from . import selected_features
 
 modeln='bdt/fall_detection_1.h5' # model name
 merged_path = 'bdt/merged.csv'

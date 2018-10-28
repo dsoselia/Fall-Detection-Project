@@ -123,3 +123,19 @@ plt.ylabel('True Positive Rate or (Sensitivity)')
 plt.title('Receiver Operating Characteristic')
 plt.legend(loc="lower right")
 plt.savefig('foo.png')
+
+
+def get_labels(path = 'labels.csv'):
+    with open(path) as csv:
+        content = csv.readlines()[0].lower()
+        content  = content.replace('","', "TARA")
+        content  = content.replace(',', " ")
+        content  = content.replace('"', " ")
+        content  = content.replace('\n', " ")
+        content  = content.replace('TARA', " , ")
+        content = content.split(",")
+        return content
+    
+def get_indexes (term = 'shank'):
+    labels = get_labels()
+    return [b for b in range(len(labels)) if term in labels[b]]

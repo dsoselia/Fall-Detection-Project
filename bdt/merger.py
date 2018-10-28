@@ -54,7 +54,7 @@ def merge(path = os.getcwd() + '/CSV_fall_data/**/*.csv', mergedPath = 'bdt/merg
         #break #FIXME remove break
     open(mergedPath, 'w').write(merged)
 #merge()
-
+import os
 def printRow(path = os.getcwd() + '/CSV_fall_data/**/*.csv', n = 4):
     csvs = glob(top)
     merged = []
