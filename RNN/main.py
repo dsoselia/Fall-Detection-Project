@@ -7,6 +7,8 @@ Created on Sun Jul  1 00:41:01 2018
 """
 from . import rnn_merger
 from . import model_evaluate
+from . import selected_features
+
 
 modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
@@ -220,10 +222,10 @@ while(iter<50000): #FIXME  50000
             print("testing: ")
             test()
             print(iter)
-            #break # TODO:
+            break # TODO:
         elif(iter % 1000 == 0): 
             print(str(iter), end="\r")
-            #break # TODO:
+            break # TODO:
         print(str(iter), end="\r")
         iter+=1;
         balance_needed = not balance_needed
