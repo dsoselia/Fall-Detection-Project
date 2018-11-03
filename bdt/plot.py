@@ -159,7 +159,7 @@ for sensor_name in (needed):
     # prep numpy for random forest
     balance_needed = False
     print("start training ...")
-    while(iter<2000):
+    while(iter<1000):
         j=random.randint(1, int((len(content)-50)))
         #print(j)
         #avred = not avred
