@@ -67,7 +67,7 @@ print(len(content[0]))
 
 
 
-
+test_percentage = 0.8
 
 
 
@@ -76,10 +76,14 @@ import numpy as np
 
 import random
 
-def get_fall(point = 0):
+def get_fall(point = 0, test = False):
     fell = [0]
     while fell == [0]:
         point = falls[random.randint(0, len(falls))][0] + random.randint(10, 100)
+        if (test):
+            point = falls[int(random.randint(len(falls)*test_percentage), len(falls) )][0] + random.randint(10, 100)
+        else:
+            point = falls[random.randint(0, int(len(falls)*test_percentage))][0] + random.randint(10, 100)
         segment , fell = row_to_numpy(point)
     return segment , fell
 

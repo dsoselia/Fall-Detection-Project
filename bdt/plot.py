@@ -66,6 +66,7 @@ print(len((content[35232])))
 print(len(content[0]))
 
 
+test_percentage = 0.8
 
 
 
@@ -76,12 +77,20 @@ import numpy as np
 
 import random
 
-def get_fall(point = 0):
+def get_fall(point = 0, test = False):
     fell = [0]
     while fell == [0]:
         point = falls[random.randint(0, len(falls))][0] + random.randint(10, 100)
+        if (test):
+            point = falls[random.randint(int(len(falls)*test_percentage), len(falls))][0] + random.randint(10, 100)
+        else:
+            point = falls[random.randint(0, int(len(falls)*test_percentage))][0] + random.randint(10, 100)
         segment , fell = row_to_numpy(point)
+    #print(segment)
+    #print(fell)
     return segment , fell
+
+
 
 
 j = 0
@@ -114,6 +123,9 @@ predictions = [round(value) for value in y_pred]
 fpr_list = []
 tpr_list = []
 needed = ["shank", "foot", 'hip', 'wrist']
+needed = ["shank lt", "foot lt", 'hip lt', 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
+#needed = ["shank", "foot", 'hip', 'wrist']
+
 for sensor_name in (needed): 
     confusion_matrix = [[0,0],[0,0]]
     def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False, confusion_matrix = [[0,0],[0,0]]):
@@ -198,8 +210,10 @@ for sensor_name in (needed):
     Y_1 = []
     iter = 0
     # prep numpy for random forest
+    print('creating test stet ...')
     balance_needed = False
     while(iter<400):
+        #print(iter)
         j=random.randint(1, int((len(content)-50)))
         #print(j)
         #avred = not avred
@@ -207,7 +221,7 @@ for sensor_name in (needed):
             #print(iter)
             #print('Balance 0 : ' + str(balance_needed))
             if balance_needed:
-                np_arr, y = get_fall()
+                np_arr, y = get_fall(test = True)
             else:
                 np_arr, y = row_to_numpy(j)
             #print('Balance : ' + str(balance_needed))
@@ -220,8 +234,8 @@ for sensor_name in (needed):
             iter+=1;
             balance_needed = not balance_needed
         except (TypeError,IndexError):
-            #print('error raised at index ' +str(j))
-            #print(sys.exc_info()[0])
+            print('error raised at index ' +str(j))
+            print(sys.exc_info()[0])
             pass
         except:
             print(sys.exc_info()[0])
@@ -293,9 +307,9 @@ for graph in range(len(needed)):
 plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
 #plt.xlim([0.0, 1.0])
 #plt.ylim([0.0, 1.0])
-plt.xlabel('False Positive Rate or (1 - Specifity)')
+plt.xlabel('False Positive Rate or (1 - Specificity)')
 plt.ylabel('True Positive Rate or (Sensitivity)')
-plt.title('Receiver Operating Characteristic')
+plt.title('Receiver Operating Characteristic fpr GBT')
 plt.legend(loc="lower right")
 plt.savefig('bdt.png')
 #finish
