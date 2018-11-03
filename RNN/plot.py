@@ -13,7 +13,8 @@ from . import selected_features
 modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
 directory = 'RNN/'
-
+print("Code ind ebug mode, do not execute")
+quit()
 import os.path
 # TODO
  
