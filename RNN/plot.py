@@ -101,7 +101,7 @@ import numpy as np
 from keras.models import load_model
 fpr_list = []
 tpr_list = []
-needed = ["shank lt", "foot lt", 'hip lt', 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
+needed = ["shank lt", "foot lt"]
 #needed = ["shank", "foot", 'hip', 'wrist']
 
 for sensor_name in (needed):   
@@ -234,8 +234,9 @@ for sensor_name in (needed):
             #print(j)
             #j=random.randint(1, 5)
             #j=random.randint(1264, 1896)
-            if(iter % 5 == 0): #FIXME set 5K
+            if(iter % 10 == 0): #FIXME set 5K
                 #model.save(directory+ modeln) #FIXME activate
+                print(sensor_name)
                 print("testing: ")
                 test()
                 print(iter)
