@@ -216,7 +216,7 @@ for sensor_name in (needed):
         del log_y[:]
         del log_predicted[:]
     print('started training ...')    
-    while(iter<50): #FIXME  50000
+    while(iter<50): #FIXME  50000 jere
         j=random.randint(1, len(content)-50)
         #avred = not avred
         try:
