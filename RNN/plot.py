@@ -234,13 +234,13 @@ for sensor_name in (needed):
             #print(j)
             #j=random.randint(1, 5)
             #j=random.randint(1264, 1896)
-            if(iter % 5000 == 0): #FIXME set 5K
+            if(iter % 5 == 0): #FIXME set 5K
                 #model.save(directory+ modeln) #FIXME activate
                 print("testing: ")
                 test()
                 print(iter)
                 #break # TODO:
-            elif(iter % 1000 == 0): 
+            elif(iter % 5 == 0): 
                 print(str(iter), end="\r")
                 #break # TODO:
             print(str(iter), end="\r")
