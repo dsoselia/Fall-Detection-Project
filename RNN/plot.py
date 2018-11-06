@@ -216,7 +216,7 @@ for sensor_name in (needed):
         del log_y[:]
         del log_predicted[:]
     print('started training ...')    
-    while(iter<50000): #FIXME  50000
+    while(iter<25000): #FIXME  50000
         j=random.randint(1, len(content)-50)
         #avred = not avred
         try:
@@ -236,6 +236,7 @@ for sensor_name in (needed):
             #j=random.randint(1264, 1896)
             if(iter % 5000 == 0): #FIXME set 5K
                 #model.save(directory+ modeln) #FIXME activate
+                print(sensor_name)
                 print("testing: ")
                 test()
                 print(iter)
