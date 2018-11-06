@@ -8,7 +8,7 @@ Created on Sun Jul  1 00:41:01 2018
 from . import rnn_merger
 from . import model_evaluate
 from . import selected_features
-print("DEBUG MODE")
+
 
 modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
@@ -101,7 +101,7 @@ import numpy as np
 from keras.models import load_model
 fpr_list = []
 tpr_list = []
-needed = ["shank lt", "foot lt"]
+needed = ["shank lt", "foot lt", 'hip lt', 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
 #needed = ["shank", "foot", 'hip', 'wrist']
 
 for sensor_name in (needed):   
@@ -190,7 +190,7 @@ for sensor_name in (needed):
         fall = True    
         correct = 0
         i = 0
-        while i < 10:# TODO: 1000
+        while i < 1000:# TODO: 
             print("testing iter "+str(i), end="\r")
             try:
                 temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix = matrix)
@@ -216,7 +216,7 @@ for sensor_name in (needed):
         del log_y[:]
         del log_predicted[:]
     print('started training ...')    
-    while(iter<50): #FIXME  50000 jere
+    while(iter<50000): #FIXME  50000
         j=random.randint(1, len(content)-50)
         #avred = not avred
         try:
@@ -234,14 +234,13 @@ for sensor_name in (needed):
             #print(j)
             #j=random.randint(1, 5)
             #j=random.randint(1264, 1896)
-            if(iter % 10 == 0): #FIXME set 5K
+            if(iter % 5000 == 0): #FIXME set 5K
                 #model.save(directory+ modeln) #FIXME activate
-                print(sensor_name)
                 print("testing: ")
                 test()
                 print(iter)
                 #break # TODO:
-            elif(iter % 5 == 0): 
+            elif(iter % 1000 == 0): 
                 print(str(iter), end="\r")
                 #break # TODO:
             print(str(iter), end="\r")
