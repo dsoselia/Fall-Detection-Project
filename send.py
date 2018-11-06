@@ -25,7 +25,7 @@ msg['Subject'] = subject
 body = 'Hi there'
 msg.attach(MIMEText(body,'plain'))
 
-filename='foo.png'
+filename='rnn.png'
 attachment  =open(filename,'rb')
 
 part = MIMEBase('application','octet-stream')
