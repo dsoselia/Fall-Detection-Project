@@ -8,7 +8,7 @@ Created on Sun Jul  1 00:41:01 2018
 from . import rnn_merger
 from . import model_evaluate
 from . import selected_features
-
+print("DEBUG MODE")
 
 modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
