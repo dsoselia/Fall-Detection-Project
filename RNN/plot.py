@@ -190,7 +190,7 @@ for sensor_name in (needed):
         fall = True    
         correct = 0
         i = 0
-        while i < 1000:# TODO: 
+        while i < 10:# TODO: 1000
             print("testing iter "+str(i), end="\r")
             try:
                 temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix = matrix)
@@ -216,7 +216,7 @@ for sensor_name in (needed):
         del log_y[:]
         del log_predicted[:]
     print('started training ...')    
-    while(iter<50000): #FIXME  50000
+    while(iter<50): #FIXME  50000
         j=random.randint(1, len(content)-50)
         #avred = not avred
         try:
