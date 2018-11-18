@@ -63,18 +63,29 @@ print(len(content[0]))
 
 
 
+test_percentage = 0.8
 
 import numpy as np
 
 import random
-
+''' #wrong seperation
 def get_fall(point = 0):
     fell = [0]
     while fell == [0]:
         point = falls[random.randint(0, len(falls))][0] + random.randint(10, 100)
         segment , fell = row_to_numpy(point)
     return segment , fell
-
+'''
+def get_fall(point = 0, test = False):
+    fell = [0]
+    while fell == [0]:
+        point = falls[random.randint(0, len(falls))][0] + random.randint(10, 100)
+        if (test):
+            point = falls[random.randint(int(len(falls)*test_percentage), len(falls))][0] + random.randint(10, 100)
+        else:
+            point = falls[random.randint(0, int(len(falls)*test_percentage))][0] + random.randint(10, 100)
+        segment , fell = row_to_numpy(point)
+    return segment , fell
 
 j = 0
 iter = 0
@@ -99,7 +110,7 @@ Y = []
 iter = 0
 # prep numpy for random forest
 balance_needed = False
-while(iter<50000):
+while(iter<500000):
     j=random.randint(1, int((len(content)-50)))
     #print(j)
     #avred = not avred
@@ -139,7 +150,7 @@ Y_1 = []
 iter = 0
 # prep numpy for random forest
 balance_needed = False
-while(iter<1000):
+while(iter<10000):
     j=random.randint(1, int((len(content)-50)))
     #print(j)
     #avred = not avred
@@ -147,7 +158,7 @@ while(iter<1000):
         #print(iter)
         #print('Balance 0 : ' + str(balance_needed))
         if balance_needed:
-            np_arr, y = get_fall()
+            np_arr, y = get_fall(test = True)
         else:
             np_arr, y = row_to_numpy(j)
         #print('Balance : ' + str(balance_needed))
