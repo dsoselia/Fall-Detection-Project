@@ -191,7 +191,7 @@ for sensor_name in (needed):
         correct = 0
         i = 0
         while i < 1000:# TODO: 
-            print("testing iter "+str(i), end="\r")
+            print("testing iter "+str(i))
             try:
                 temp, matrix = checkresult_confusion(check_fall = fall, confusion_matrix = matrix)
                 correct += (temp)            
@@ -242,7 +242,7 @@ for sensor_name in (needed):
                 print(iter)
                 #break # TODO:
             elif(iter % 1000 == 0): 
-                print(str(iter), end="\r")
+                print(str(iter))
                 #break # TODO:
             print(str(iter), end="\r")
             iter+=1;
