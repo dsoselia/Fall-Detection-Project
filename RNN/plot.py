@@ -244,7 +244,7 @@ for sensor_name in (needed):
             elif(iter % 1000 == 0): 
                 print(str(iter))
                 #break # TODO:
-            print(str(iter), end="\r")
+            print(str(iter))
             iter+=1;
             balance_needed = not balance_needed
             #print('here')
