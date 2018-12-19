@@ -9,6 +9,9 @@ from . import rnn_merger
 from . import model_evaluate
 from . import selected_features
 
+import matplotlib as mpl
+mpl.use('Agg')
+import matplotlib.pyplot as plt
 
 modeln='fall_detection_1.h5' # model name
 merged_path = 'merged.csv'
