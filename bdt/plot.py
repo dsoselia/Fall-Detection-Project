@@ -309,8 +309,8 @@ plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
 #plt.ylim([0.0, 1.0])
 plt.xlabel('False Positive Rate or (1 - Specificity)')
 plt.ylabel('True Positive Rate or (Sensitivity)')
-plt.title('Receiver Operating Characteristic fpr GBT')
+plt.title('GBT')
 plt.legend(loc="lower right")
-plt.savefig('bdt.png')
+plt.savefig('bdt_f.png')
 #finish
 
