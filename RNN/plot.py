@@ -287,21 +287,7 @@ for graph in range(len(needed)):
     plt.plot(fpr_list[graph], tpr_list[graph], label= needed[graph])
 plt.xlabel('False Positive Rate or (1 - Specificity)')
 plt.ylabel('True Positive Rate or (Sensitivity)')
-plt.title('Receiver Operating Characteristic')
+plt.title('RNN')
 plt.legend(loc="lower right")
-plt.savefig('rnn.png')
+plt.savefig('rnn_f.png')
 
-'''
-import time
-
-print("ka")
-time.sleep(1)
-print("ja\r", end="\r")
-time.sleep(1)
-print("ba")
-import datetime
-def clock():
-     while True:
-         print(datetime.datetime.now().strftime("%H:%M:%S"), end="\r")
-         time.sleep(1)
-'''
