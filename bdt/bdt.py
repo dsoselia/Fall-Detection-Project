@@ -237,11 +237,16 @@ X_test = np.array(X_1)
 Y_test = np.array(Y_1)
 Y_test = Y_test.reshape(Y_test.shape[0])
 
-
+'''
 model = XGBClassifier()
-model.fit(X_t, Y_t)
+model.fit(X_t, Y_t, eval_metric='auc')
+'''
+model = XGBClassifier()
+eval_set = [(X_t, Y_t), (X_test, Y_test)]
 
+model.fit(X_t, Y_t, eval_metric=["error", "logloss"], eval_set=eval_set, verbose=True)
 
+from matplotlib import pyplot
 
 y_pred = model.predict(X_t)
 predictions = [round(value) for value in y_pred]
@@ -251,6 +256,59 @@ print("Training Accuracy: %.2f%%" % (accuracy * 100.0))
 import sklearn
 print(sklearn.metrics.precision_score(Y_t, predictions))
 print(sklearn.metrics.recall_score(Y_t, predictions))
+
+y_pred = model.predict(X_test)
+predictions = [round(value) for value in y_pred]
+# evaluate predictions
+accuracy = accuracy_score(Y_test, predictions)
+print("Accuracy: %.2f%%" % (accuracy * 100.0))
+# retrieve performance metrics
+results = model.evals_result()
+epochs = len(results['validation_0']['error'])
+x_axis = range(0, epochs)
+# plot log loss
+fig, ax = pyplot.subplots()
+ax.plot(x_axis, results['validation_0']['logloss'], label='Train')
+ax.plot(x_axis, results['validation_1']['logloss'], label='Test')
+ax.legend()
+pyplot.ylabel('Log Loss')
+pyplot.title('XGBoost Log Loss')
+pyplot.savefig('f2.png')
+# plot classification error
+fig, ax = pyplot.subplots()
+ax.plot(x_axis, results['validation_0']['error'], label='Train')
+ax.plot(x_axis, results['validation_1']['error'], label='Test')
+ax.legend()
+pyplot.ylabel('Classification Error')
+pyplot.title('XGBoost Classification Error')
+pyplot.savefig('f1.png')
+
+
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -293,5 +351,7 @@ plt.xlabel('False Positive Rate or (1 - Specifity)')
 plt.ylabel('True Positive Rate or (Sensitivity)')
 plt.title('Receiver Operating Characteristic')
 plt.legend(loc="lower right")
-plt.savefig('foo.png')
+plt.savefig('ignore.png')
 #finish
+
+''

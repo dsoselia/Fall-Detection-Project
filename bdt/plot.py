@@ -298,7 +298,7 @@ for sensor_name in (needed):
     fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
     fpr_list.append(fpr)
     tpr_list.append(tpr)
-    roc_auc = auc(log_y, log_predicted, reorder  = True)
+    roc_auc = auc(log_y, log_predicted, reorder  = True, eval_metric='auc')
 
 # Plot ROC curve
 #plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
@@ -311,6 +311,6 @@ plt.xlabel('False Positive Rate or (1 - Specificity)')
 plt.ylabel('True Positive Rate or (Sensitivity)')
 plt.title('GBT')
 plt.legend(loc="lower right")
-plt.savefig('bdt_f.png')
+plt.savefig('bdt_f_1.png')
 #finish
 
