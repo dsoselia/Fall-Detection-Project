@@ -244,7 +244,7 @@ model.fit(X_t, Y_t, eval_metric='auc')
 model = XGBClassifier()
 eval_set = [(X_t, Y_t), (X_test, Y_test)]
 
-model.fit(X_t, Y_t, eval_metric=["error", "logloss"], eval_set=eval_set, verbose=True)
+model.fit(X_t, Y_t, eval_metric=["error"], eval_set=eval_set, verbose=True)
 
 from matplotlib import pyplot
 

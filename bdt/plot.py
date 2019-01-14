@@ -255,7 +255,10 @@ for sensor_name in (needed):
     
     model = XGBClassifier()
     model.fit(X_t, Y_t)
-    
+    eval_set = [(X_t, Y_t), (X_test, Y_test)]
+
+    model.fit(X_t, Y_t, eval_metric=["auc"], verbose=True)
+
     
     
     y_pred = model.predict(X_t)
@@ -298,7 +301,7 @@ for sensor_name in (needed):
     fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
     fpr_list.append(fpr)
     tpr_list.append(tpr)
-    roc_auc = auc(log_y, log_predicted, reorder  = True, eval_metric='auc')
+    roc_auc = auc(log_y, log_predicted, reorder  = True)
 
 # Plot ROC curve
 #plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
