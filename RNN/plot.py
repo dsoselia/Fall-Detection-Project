@@ -195,7 +195,7 @@ for sensor_name in (needed):
         fall = True    
         correct = 0
         i = 0
-        while i < 100:# TODO: 
+        while i < 500:# TODO: 
             print("train iteration "+ (str(iter)))
             print("testing iter "+str(i))
             try:
@@ -222,7 +222,7 @@ for sensor_name in (needed):
         del log_y[:]
         del log_predicted[:]
     print('started training ...')    
-    while(iter<1000): # 25 000 FIXME  50000
+    while(iter<25000): # 25 000 FIXME  50000
         j=random.randint(1, len(content)-50)
         #avred = not avred
         try:
@@ -240,17 +240,16 @@ for sensor_name in (needed):
             #print(j)
             #j=random.randint(1, 5)
             #j=random.randint(1264, 1896)
-            if(iter % 500 == 0): #FIXME set 5K
+            if(iter % 5000 == 0): #FIXME set 5K
                 #model.save(directory+ modeln) #FIXME activate
                 print(sensor_name)
                 print("testing: ")
                 test()
                 print(iter)
                 #break # TODO:
-            elif(iter % 1000 == 0): 
-                print(str(iter))
+            elif(iter % 100 == 0): 
+                print(str(sensor_name) + " iter  " + str(iter))
                 #break # TODO:
-            print(str(sensor_name) + " iter  " + str(iter))
             iter+=1;
             balance_needed = not balance_needed
             #print('here')
