@@ -57,7 +57,7 @@ def generate_numpy(point, length = 500):
     segment = []
     falls = 0;
     fell = [0]
-    print("segment at " + str(point) + " length " + str(length ))
+    #print("segment at " + str(point) + " length " + str(length ))
     for i in range(point, point + length):
         if ('all' in content[i][-1]):
             falls+=1
@@ -106,6 +106,8 @@ from keras.models import load_model
 fpr_list = []
 tpr_list = []
 needed = ['hip lt',"shank lt", "foot lt", 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
+needed = ['hip lt',"shank lt", "foot lt"]
+
 #needed = ["shank", "foot", 'hip', 'wrist']
 
 for sensor_name in (needed):   
@@ -217,8 +219,8 @@ for sensor_name in (needed):
         print("confusion matrix: ")
         print(matrix)
         print('specificity: {0} '.format(model_evaluate.specificity(matrix)))
-        print('percision: {0} '.format(model_evaluate.percision(matrix)))
-        print('recall: {0} '.format(model_evaluate.recall(matrix)))
+        #print('percision: {0} '.format(model_evaluate.percision(matrix)))
+        #print('recall: {0} '.format(model_evaluate.recall(matrix)))
         np.save(directory + 'y.npy', log_y)
         np.save(directory + 'y_predicted.npy', log_predicted)
         fpr, tpr, thresholds = metrics.roc_curve(log_y, log_predicted, pos_label=1)
