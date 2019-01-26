@@ -20,10 +20,10 @@ directory = 'RNN/'
 #quit()
 import os.path
 # TODO
- 
+''' 
 if  os.path.isfile(directory + merged_path):
     os.remove(directory + merged_path)
-
+'''
 if not os.path.isfile(directory + merged_path):
     print("prepairing to merge ...")
     rnn_merger.merge()
@@ -57,6 +57,7 @@ def generate_numpy(point, length = 500):
     segment = []
     falls = 0;
     fell = [0]
+    print("segment at " + str(point) + " length " + str(length ))
     for i in range(point, point + length):
         if ('all' in content[i][-1]):
             falls+=1
@@ -134,13 +135,18 @@ for sensor_name in (needed):
     
     
     def get_fall(point = 0, length = random.randint(300, 1500)):
+        length = random.randint(300, 1500)
         if point == 0:
             point = falls[random.randint(0, len(falls))][0] - random.randint(100, 500)
         segment , fell = generate_numpy(point, length)
         return segment , fell
     log_y = []
     log_predicted = []
-    def checkresult_confusion(point = random.randint(1, len(content)-50), length = random.randint(300, 1500), check_fall = False,  confusion_matrix = [[0,0],[0,0]]):
+    
+    
+    def checkresult_confusion(check_fall = False,  confusion_matrix = [[0,0],[0,0]]):
+        point = random.randint(1, len(content)-50)
+        length = random.randint(300, 1500)
         print("acquiring data for checfall " + str(check_fall) + " at point " + str(point))
         np_arr, y = get_fall() if check_fall else generate_numpy(point, length)
         print("acquired data")
