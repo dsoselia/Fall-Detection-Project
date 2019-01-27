@@ -256,7 +256,7 @@ for sensor_name in (needed):
                 test()
                 print(iter)
                 #break # TODO:
-            elif(iter % 100 == 0): 
+            elif(iter % 1000 == 0): 
                 print(str(sensor_name) + " iter  " + str(iter))
                 #break # TODO:
             iter+=1;
