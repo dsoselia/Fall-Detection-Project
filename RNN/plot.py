@@ -102,6 +102,7 @@ from keras.layers import LSTM
 from keras.layers import Dense
 from keras.layers import Conv1D
 import numpy as np
+import pickle
 from keras.models import load_model
 fpr_list = []
 tpr_list = []
@@ -203,7 +204,7 @@ for sensor_name in (needed):
         fall = True    
         correct = 0
         i = 0
-        while i < 500:# TODO: 
+        while i < 1000:# TODO: 
             print("train iteration "+ (str(iter)))
             print("testing iter "+str(i))
             try:
@@ -230,7 +231,7 @@ for sensor_name in (needed):
         del log_y[:]
         del log_predicted[:]
     print('started training ...')    
-    while(iter<25000): # 25 000 FIXME  50000
+    while(iter<30001): # 25 000 FIXME  50000
         j=random.randint(1, len(content)-50)
         #avred = not avred
         try:
@@ -248,7 +249,7 @@ for sensor_name in (needed):
             #print(j)
             #j=random.randint(1, 5)
             #j=random.randint(1264, 1896)
-            if(iter % 5000 == 0): #FIXME set 5K
+            if(iter % 10000 == 0): #FIXME set 5K
                 #model.save(directory+ modeln) #FIXME activate
                 print(sensor_name)
                 print("testing: ")
@@ -288,6 +289,10 @@ for sensor_name in (needed):
     fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
     fpr_list.append(fpr)
     tpr_list.append(tpr)
+    with open('fpr_list.pkl', 'wb') as f:
+        pickle.dump(fpr, f)
+    with open('tpr_list.pkl', 'wb') as f:
+        pickle.dump(tpr, f)
     roc_auc = auc(log_y, log_predicted, reorder  = True)
 
 
