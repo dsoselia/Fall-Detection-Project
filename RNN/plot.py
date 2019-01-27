@@ -108,7 +108,7 @@ fpr_list = []
 tpr_list = []
 needed = ['hip lt',"shank lt", "foot lt", 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
 needed = ['hip lt',"shank lt", "foot lt"]
-
+needed = ['wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
 #needed = ["shank", "foot", 'hip', 'wrist']
 
 for sensor_name in (needed):   
@@ -289,9 +289,9 @@ for sensor_name in (needed):
     fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
     fpr_list.append(fpr)
     tpr_list.append(tpr)
-    with open('fpr_list.pkl', 'wb') as f:
+    with open('fpr_list_1.pkl', 'wb') as f:
         pickle.dump(fpr, f)
-    with open('tpr_list.pkl', 'wb') as f:
+    with open('tpr_list_1.pkl', 'wb') as f:
         pickle.dump(tpr, f)
     roc_auc = auc(log_y, log_predicted, reorder  = True)
 
