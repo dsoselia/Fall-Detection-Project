@@ -306,3 +306,8 @@ plt.title('RNN')
 plt.legend(loc="lower right")
 plt.savefig('rnn_f.png')
 
+'''
+with open('parrot.pkl', 'rb') as f:
+    mynewlist = pickle.load(f)
+'''
+
