@@ -106,6 +106,7 @@ import pickle
 from keras.models import load_model
 fpr_list = []
 tpr_list = []
+auc_list = []
 needed = ['hip lt',"shank lt", "foot lt", 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
 #needed = ['hip lt',"shank lt", "foot lt"]
 #needed = ['wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
@@ -290,11 +291,13 @@ for sensor_name in (needed):
     fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
     fpr_list.append(fpr)
     tpr_list.append(tpr)
+    
     with open('fpr_list_1.pkl', 'wb') as f:
         pickle.dump(fpr_list, f)
     with open('tpr_list_1.pkl', 'wb') as f:
         pickle.dump(tpr_list, f)
-    roc_auc = auc(log_y, log_predicted, reorder  = True)
+    with open('auc_list.pkl', 'wb') as f:
+        pickle.dump(auc_list, f)
 
 
 
