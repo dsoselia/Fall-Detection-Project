@@ -8,7 +8,7 @@ from keras.optimizers import SGD, Adam, RMSprop
 from keras.callbacks import LearningRateScheduler
 from keras.utils import np_utils
 import keras.backend as K
-
+import pickle
 from bnn.binary_ops import binary_tanh as binary_tanh_op
 from bnn.binary_layers import BinaryDense
 
@@ -127,7 +127,11 @@ for sensor_name in (needed):
     roc_auc = auc(log_y, log_predicted, reorder  = True)
     fpr_list.append(fpr)
     tpr_list.append(tpr)    
-    
+    with open('bnn_fpr_list_1.pkl', 'wb') as f:
+        pickle.dump(fpr_list, f)
+    with open('bnn_tpr_list_1.pkl', 'wb') as f:
+        pickle.dump(tpr_list, f)
+
     # Plot ROC curve
     #plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
     
@@ -140,7 +144,7 @@ plt.xlabel('False Positive Rate or (1 - Specificity)')
 plt.ylabel('True Positive Rate or (Sensitivity)')
 plt.title('BNN')
 plt.legend(loc="lower right")
-plt.savefig('bnn_f.png')
+plt.savefig('bnn.png')
 
 
 
