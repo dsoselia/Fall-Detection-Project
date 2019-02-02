@@ -11,6 +11,7 @@ from . import selected_features
 modeln='bdt/fall_detection_1.h5' # model name
 merged_path = 'bdt/merged.csv'
 import os.path
+import pickle
 
 if not os.path.isfile(merged_path):
     print("merging ...")
@@ -122,6 +123,7 @@ predictions = [round(value) for value in y_pred]
 '''
 fpr_list = []
 tpr_list = []
+auc_list = []
 needed = ["shank", "foot", 'hip', 'wrist']
 needed = ["shank lt", "foot lt", 'hip lt', 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
 #needed = ["shank", "foot", 'hip', 'wrist']
@@ -302,11 +304,19 @@ for sensor_name in (needed):
     fpr_list.append(fpr)
     tpr_list.append(tpr)
     roc_auc = auc(log_y, log_predicted, reorder  = True)
+    auc_list.append(roc_auc)
+    
+    with open('bdt_fpr_list_1.pkl', 'wb') as f:
+        pickle.dump(fpr_list, f)
+    with open('bdt_tpr_list_1.pkl', 'wb') as f:
+        pickle.dump(tpr_list, f)
+    with open('bdt_auc_list.pkl', 'wb') as f:
+        pickle.dump(auc_list, f)
 
 # Plot ROC curve
 #plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
 for graph in range(len(needed)):
-    plt.plot(fpr_list[graph], tpr_list[graph], label= needed[graph])
+    plt.plot(fpr_list[graph], tpr_list[graph], label= needed[graph] +" " + str(auc_list[graph]))
 plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
 #plt.xlim([0.0, 1.0])
 #plt.ylim([0.0, 1.0])
@@ -314,6 +324,6 @@ plt.xlabel('False Positive Rate or (1 - Specificity)')
 plt.ylabel('True Positive Rate or (Sensitivity)')
 plt.title('GBT')
 plt.legend(loc="lower right")
-plt.savefig('bdt_f_1.png')
+plt.savefig('bdt.png')
 #finish
 
