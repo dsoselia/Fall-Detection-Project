@@ -74,7 +74,7 @@ history = model.fit(X_train, Y_train,
 '''
 fpr_list = []
 tpr_list = []
-needed = ["shank", "foot", 'hip', 'wrist']
+needed = ['hip lt',"shank lt", "foot lt", 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
 for sensor_name in (needed): 
     X_train = generate_numpys.X_t
     Y_train = generate_numpys.Y_t
@@ -144,7 +144,7 @@ plt.xlabel('False Positive Rate or (1 - Specificity)')
 plt.ylabel('True Positive Rate or (Sensitivity)')
 plt.title('BNN')
 plt.legend(loc="lower right")
-plt.savefig('bnn.png')
+plt.savefig('bnn_f.png')
 
 
 
