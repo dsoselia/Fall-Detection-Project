@@ -107,7 +107,7 @@ from sklearn.metrics import auc
 import matplotlib.pyplot as plt
 import numpy as np
 
-
+'''
 #log_y = np.array([1, 1, 0, 0])
 #log_predicted =  np.array([0.1, 0.4, 0.35, 0.8])
 fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
@@ -142,3 +142,4 @@ def get_labels(path = 'labels.csv'):
 def get_indexes (term = 'shank'):
     labels = get_labels()
     return [b for b in range(len(labels)) if term in labels[b]]
+'''
