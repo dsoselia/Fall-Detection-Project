@@ -106,6 +106,7 @@ from sklearn.metrics import roc_curve
 from sklearn.metrics import auc
 import matplotlib.pyplot as plt
 import numpy as np
+print(history.history.keys())
 
 '''
 #log_y = np.array([1, 1, 0, 0])
@@ -113,7 +114,7 @@ import numpy as np
 fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
 roc_auc = auc(log_y, log_predicted, reorder  = True)
 
-print(history.history.keys())
+
 
 # Plot ROC curve
 #plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
