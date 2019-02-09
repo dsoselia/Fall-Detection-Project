@@ -29,7 +29,7 @@ def binary_tanh(x):
     return binary_tanh_op(x)
 
 batch_size = 100
-nb_epoch = 50
+nb_epoch = 1
 nb_classes = 10
 
 H = 'Glorot'
@@ -113,6 +113,7 @@ import numpy as np
 fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
 roc_auc = auc(log_y, log_predicted, reorder  = True)
 
+print(history.history.keys())
 
 # Plot ROC curve
 #plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
