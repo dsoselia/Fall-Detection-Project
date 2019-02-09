@@ -29,7 +29,7 @@ def binary_tanh(x):
     return binary_tanh_op(x)
 
 batch_size = 100
-nb_epoch = 1
+nb_epoch = 25
 nb_classes = 10
 
 H = 'Glorot'
@@ -37,7 +37,7 @@ kernel_lr_multiplier = 'Glorot'
 
 # network
 num_unit = 120
-num_hidden = 1
+num_hidden = 2
 use_bias = False
 
 # learning rate schedule
@@ -51,7 +51,7 @@ momentum = 0.9
 
 # dropout
 drop_in = 0.2
-drop_hidden = 0.5
+drop_hidden = 0.3
 
 model = Sequential()
 model.add(DropoutNoScale(drop_in, input_shape=(183,), name='drop0'))
