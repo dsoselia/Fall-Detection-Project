@@ -315,6 +315,9 @@ for sensor_name in (needed):
         pickle.dump(tpr_list, f)
     with open('bdt_auc_list.pkl', 'wb') as f:
         pickle.dump(auc_list, f)
+    with open('bdt_model.pkl', 'wb') as f:
+        pickle.dump(model, f)
+    
 
 # Plot ROC curve
 #plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
