@@ -90,7 +90,7 @@ history = model.fit(X_train, Y_train,
                     verbose=1, validation_data=(X_test, Y_test))
 score = model.evaluate(X_test, Y_test, verbose=0)
 import pickle
-with open('bnn_history.pkl', 'wb') as f:
+with open('forests_history.pkl', 'wb') as f:
     pickle.dump(history, f)
 print('Test score:', score[0])
 print('Test accuracy:', score[1])
