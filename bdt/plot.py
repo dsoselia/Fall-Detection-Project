@@ -128,7 +128,7 @@ fpr_list = []
 tpr_list = []
 auc_list = []
 needed = ["shank", "foot", 'hip', 'wrist']
-needed = ["shank lt", "foot lt", 'hip lt', 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
+needed = ['hip lt',"shank lt", "foot lt", 'wrist lt', "shank rt", "foot rt", 'hip rt', 'wrist rt']
 #needed = ["shank", "foot", 'hip', 'wrist']
 
 for sensor_name in (needed): 
