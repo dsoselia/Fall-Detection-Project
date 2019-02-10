@@ -8,6 +8,8 @@ Created on Sun Jul  1 00:41:01 2018
 from . import merger
 from . import selected_features
 
+import matplotlib as mpl
+mpl.use('Agg')
 modeln='bdt/fall_detection_1.h5' # model name
 merged_path = 'bdt/merged.csv'
 import os.path
