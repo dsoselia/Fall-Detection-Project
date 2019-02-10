@@ -278,7 +278,7 @@ ax.plot(x_axis, results['validation_1']['logloss'], label='Test')
 ax.legend()
 pyplot.ylabel('Log Loss')
 pyplot.title('XGBoost Log Loss')
-pyplot.savefig('f2.png')
+pyplot.savefig('bdt_loss.png')
 # plot classification error
 fig, ax = pyplot.subplots()
 ax.plot(x_axis, results['validation_0']['error'], label='Train')
@@ -286,7 +286,7 @@ ax.plot(x_axis, results['validation_1']['error'], label='Test')
 ax.legend()
 pyplot.ylabel('Classification Error')
 pyplot.title('XGBoost Classification Error')
-pyplot.savefig('f1.png')
+pyplot.savefig('bdt_acc.png')
 
 
 
