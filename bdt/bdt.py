@@ -8,12 +8,9 @@ Created on Sun Jul  1 00:41:01 2018
 from . import merger
 from . import selected_features
 
-import matplotlib as mpl
-mpl.use('Agg')
 modeln='bdt/fall_detection_1.h5' # model name
 merged_path = 'bdt/merged.csv'
 import os.path
-import pickle
 
 if not os.path.isfile(merged_path):
     print("merging ...")
@@ -267,8 +264,6 @@ accuracy = accuracy_score(Y_test, predictions)
 print("Accuracy: %.2f%%" % (accuracy * 100.0))
 # retrieve performance metrics
 results = model.evals_result()
-with open('bdt_logy.pkl', 'wb') as f:
-    pickle.dump(results, f)
 epochs = len(results['validation_0']['error'])
 x_axis = range(0, epochs)
 # plot log loss
@@ -278,7 +273,7 @@ ax.plot(x_axis, results['validation_1']['logloss'], label='Test')
 ax.legend()
 pyplot.ylabel('Log Loss')
 pyplot.title('XGBoost Log Loss')
-pyplot.savefig('bdt_loss.png')
+pyplot.savefig('f2.png')
 # plot classification error
 fig, ax = pyplot.subplots()
 ax.plot(x_axis, results['validation_0']['error'], label='Train')
@@ -286,7 +281,7 @@ ax.plot(x_axis, results['validation_1']['error'], label='Test')
 ax.legend()
 pyplot.ylabel('Classification Error')
 pyplot.title('XGBoost Classification Error')
-pyplot.savefig('bdt_acc.png')
+pyplot.savefig('f1.png')
 
 
 
