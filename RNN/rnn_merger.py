@@ -34,7 +34,7 @@ def strip(path):
             stripped += new_row
         i+=1
         if (i%10000 == 0):
-            print('progress ' + str(i) + '/' + str(len(content)), end="\r")
+            print('progress ' + str(i) + '/' + str(len(content)))
             pass
     print(path + str(len(last.split(','))))
     return stripped

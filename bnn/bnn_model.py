@@ -29,15 +29,15 @@ def binary_tanh(x):
     return binary_tanh_op(x)
 
 batch_size = 100
-nb_epoch = 50
+nb_epoch = 25
 nb_classes = 10
 
 H = 'Glorot'
 kernel_lr_multiplier = 'Glorot'
 
 # network
-num_unit = 120
-num_hidden = 1
+num_unit = 240
+num_hidden = 3
 use_bias = False
 
 # learning rate schedule
@@ -51,7 +51,7 @@ momentum = 0.9
 
 # dropout
 drop_in = 0.2
-drop_hidden = 0.5
+drop_hidden = 0.3
 
 model = Sequential()
 model.add(DropoutNoScale(drop_in, input_shape=(183,), name='drop0'))
@@ -89,7 +89,9 @@ history = model.fit(X_train, Y_train,
                     batch_size=batch_size, nb_epoch=nb_epoch,
                     verbose=1, validation_data=(X_test, Y_test))
 score = model.evaluate(X_test, Y_test, verbose=0)
-
+import pickle
+with open('bnn_history.pkl', 'wb') as f:
+    pickle.dump(history, f)
 print('Test score:', score[0])
 print('Test accuracy:', score[1])
 
@@ -104,12 +106,14 @@ from sklearn.metrics import roc_curve
 from sklearn.metrics import auc
 import matplotlib.pyplot as plt
 import numpy as np
+print(history.history.keys())
 
-
+'''
 #log_y = np.array([1, 1, 0, 0])
 #log_predicted =  np.array([0.1, 0.4, 0.35, 0.8])
 fpr, tpr, thresholds = roc_curve(log_y, log_predicted, pos_label  = 1)
 roc_auc = auc(log_y, log_predicted, reorder  = True)
+
 
 
 # Plot ROC curve
@@ -139,3 +143,4 @@ def get_labels(path = 'labels.csv'):
 def get_indexes (term = 'shank'):
     labels = get_labels()
     return [b for b in range(len(labels)) if term in labels[b]]
+'''

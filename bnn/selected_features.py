@@ -15,7 +15,7 @@ def get_labels(path = 'labels.csv'):
         content  = content.replace('TARA', " , ")
         content = content.split(",")
         return content
-    
+'''    
 def get_indexes (term = 'shank'):
     labels = get_labels()
     #return[3]
@@ -23,6 +23,20 @@ def get_indexes (term = 'shank'):
 
 def select_features(matrix, term = 'shank' ):
     return matrix[:, get_indexes()]
+
+def select_features_list():
+    [[ line[i] for i in range(len(line)) if i in b ] for line in a]
+'''   
+def get_indexes (term = 'shank rt', direction = 'rt'):
+    term = term.split(' ')
+    direction = term[1]
+    term = term[0]
+    labels = get_labels()
+    #return[3]
+    return [b for b in range(len(labels)) if (term in labels[b] and direction in labels[b])]
+
+def select_features(matrix, term = 'shank rt' ):
+    return matrix[:, get_indexes(term = term)]
 
 def select_features_list():
     [[ line[i] for i in range(len(line)) if i in b ] for line in a]
