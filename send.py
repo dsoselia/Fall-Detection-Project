@@ -11,10 +11,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 
-email_user = 'sdsuaifirst@gmail.com'
-email_password = '1234567890p'
-email_send = 'dsoselia@sdsu.edu'
-
 subject = 'subject'
 
 msg = MIMEMultipart()
